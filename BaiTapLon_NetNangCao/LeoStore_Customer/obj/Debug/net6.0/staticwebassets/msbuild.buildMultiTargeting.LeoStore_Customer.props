@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\LeoStore_Customer.props" />
+</Project>

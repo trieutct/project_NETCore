@@ -1,0 +1,146 @@
+﻿#account_user_container {
+    background-color: #eee;
+}
+
+    #account_user_container .account_user {
+        padding: 20px 0px 20px 20px;
+        display: flex;
+    }
+
+    #account_user_container .account_user_left {
+        width: 13%;
+    }
+
+        #account_user_container .account_user_left .header_accountuser {
+            display: flex;
+            margin-top: 31px;
+            align-items: center;
+            border-bottom: 1px solid rgb(170, 166, 166);
+        }
+
+.header_accountuser img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.header_accountuser .accountname {
+    padding-left: 10px;
+    font-size: 12px;
+}
+
+.menu_accountuser {
+    font-size: 14px;
+    padding: 10px;
+}
+
+    .menu_accountuser p i {
+        color: rgb(109, 153, 235);
+        font-size: 20px;
+        margin-right: 5px;
+    }
+
+    .menu_accountuser li {
+        list-style: none;
+        padding: 5px 0px 10px 30px;
+    }
+
+        .menu_accountuser li a {
+            text-decoration: none;
+            color: rgba(0,0,0,.65);
+        }
+
+            .menu_accountuser li a:hover {
+                color: orange;
+            }
+
+#account_user_container .account_user_right {
+    background: #fff;
+    width: 72%;
+    margin-left: 8%;
+    border-radius: 2px;
+}
+
+    #account_user_container .account_user_right .profile {
+        margin: 2%;
+    }
+
+.profile .profile_header {
+    border-bottom: 1px solid rgb(170, 166, 166);
+}
+
+    .profile .profile_header h3 {
+        font-size: 20px;
+    }
+
+    .profile .profile_header p {
+        font-size: 14px;
+        color: rgb(105, 107, 109);
+        margin-top: 10px;
+    }
+
+.content_profile {
+    display: flex;
+}
+
+.content_profile-left {
+    margin-left: 10%;
+}
+
+    .content_profile-left table {
+        font-size: 14px;
+    }
+
+        .content_profile-left table tr td p {
+            color: rgb(170, 166, 166);
+        }
+
+        .content_profile-left table tr td {
+            padding: 5px;
+        }
+
+            .content_profile-left table tr td .btn {
+                background: rgb(240, 93, 64);
+                color: #fff;
+                width: 20px;
+            }
+
+.content_profile-mid {
+    width: 1px;
+    height: 300px;
+    background: rgb(170, 166, 166);
+    margin-top: 20px;
+    margin-left: 5%;
+}
+
+.content_profile-right {
+    margin: 50px;
+}
+
+    .content_profile-right .image {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .content_profile-right img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+    }
+    .content_profile-right .action{
+        margin-top:10%;
+    }
+    .content_profile-right .action a {
+        margin-left: 30%;
+        margin-top: 10px;
+        padding: 10px;
+        background: #fff;
+        border: 1px solid rgb(170, 166, 166);
+        border-radius: 1px;
+    }
+
+        .content_profile-right .action a:hover {
+            background: #ccc;
+            cursor: pointer;
+        }

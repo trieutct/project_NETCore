@@ -1,0 +1,185 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Sport_Shop
+build_property.RootNamespace = Sport_Shop
+build_property.ProjectDir = H:\Trieu\Nam_3\Ki_2\.Net Nâng Cao\BaiTapLon\BaiTapLon_NetNangCao\Sport_Shop\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = H:\Trieu\Nam_3\Ki_2\.Net Nâng Cao\BaiTapLon\BaiTapLon_NetNangCao\Sport_Shop
+build_property._RazorSourceGeneratorDebug = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Admin/Views/Admin/AddCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cQWRkQ2F0ZWdvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Admin/Views/Admin/AddEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cQWRkRW1wbG95ZWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Admin/Views/Admin/AddProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cQWRkUHJvZHVjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Admin/Views/Admin/CategoryManager.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cQ2F0ZWdvcnlNYW5hZ2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Admin/Views/Admin/DoiMatKhau.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cRG9pTWF0S2hhdS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Admin/Views/Admin/DonHang.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cRG9uSGFuZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Admin/Views/Admin/EditCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cRWRpdENhdGVnb3J5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Admin/Views/Admin/EditEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cRWRpdEVtcGxveWVlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Admin/Views/Admin/EditProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cRWRpdFByb2R1Y3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Admin/Views/Admin/EditProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cRWRpdFByb2ZpbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Admin/Views/Admin/EmployeeManager.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cRW1wbG95ZWVNYW5hZ2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Admin/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Admin/Views/Admin/ProductManager.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cUHJvZHVjdE1hbmFnZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Admin/Views/Admin/ProductSizeManager.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cUHJvZHVjdFNpemVNYW5hZ2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Admin/Views/Admin/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cUHJvZmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Admin/Views/Admin/SizeManger.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cU2l6ZU1hbmdlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Admin/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Admin/Views/Shared/Admin/Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXEFkbWluXExheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Admin/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Admin/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Admin/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Admin/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Customer/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ3VzdG9tZXJcVmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Customer/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ3VzdG9tZXJcVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Customer/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ3VzdG9tZXJcVmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Customer/Views/Web_Store/EditPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ3VzdG9tZXJcVmlld3NcV2ViX1N0b3JlXEVkaXRQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Customer/Views/Web_Store/EditProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ3VzdG9tZXJcVmlld3NcV2ViX1N0b3JlXEVkaXRQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Customer/Views/Web_Store/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ3VzdG9tZXJcVmlld3NcV2ViX1N0b3JlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Customer/Views/Web_Store/ProductDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ3VzdG9tZXJcVmlld3NcV2ViX1N0b3JlXFByb2R1Y3REZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Customer/Views/Web_Store/SearchProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ3VzdG9tZXJcVmlld3NcV2ViX1N0b3JlXFNlYXJjaFByb2R1Y3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Customer/Views/Web_Store/ViewCart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ3VzdG9tZXJcVmlld3NcV2ViX1N0b3JlXFZpZXdDYXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Customer/Views/Web_Store/ViewOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ3VzdG9tZXJcVmlld3NcV2ViX1N0b3JlXFZpZXdPcmRlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Customer/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ3VzdG9tZXJcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Customer/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ3VzdG9tZXJcVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Areas/Admin/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-6f1pf1ixv8
+
+[H:/Trieu/Nam_3/Ki_2/.Net Nâng Cao/BaiTapLon/BaiTapLon_NetNangCao/Sport_Shop/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-fb0ytz46pd

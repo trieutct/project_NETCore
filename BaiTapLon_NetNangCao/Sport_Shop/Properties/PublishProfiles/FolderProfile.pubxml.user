@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>H:\Trieu\IIS\LeoStore</_PublishTargetUrl>
+    <History>True|2023-05-18T08:20:40.7918510Z;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="Myconn">
+      <Value>Server=DESKTOP-EH2F7BB%3b Database=Shop_Sport%3b User Id=sa%3b Password=01669667906%3b TrustServerCertificate=True</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="Sport_Shop.Models.ShopSportDbConText">
+      <Value>Server=DESKTOP-EH2F7BB%3b Database=Shop_Sport%3b User Id=sa%3b Password=01669667906%3b TrustServerCertificate=True</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

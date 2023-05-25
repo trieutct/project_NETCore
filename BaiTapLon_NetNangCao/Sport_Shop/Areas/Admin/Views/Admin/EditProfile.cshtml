@@ -1,0 +1,211 @@
+﻿@model Sport_Shop.Areas.Admin.Models.Emoloyee
+@{
+    ViewData["Title"] = "AddEmployee";
+    Layout = "~/Areas/Admin/Views/Shared/Admin/Layout.cshtml";
+    <style>
+        #interface {
+            width: 100%;
+            margin-left: 220px;
+        }
+
+            #interface .navigation {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background: #fff;
+                padding: 15px 30px;
+                border-bottom: 3px solid #5943f7;
+            }
+
+                #interface .navigation .search {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    padding: 10px 14px;
+                    border: 1px solid #d7dbe6;
+                    border-radius: 4px;
+                }
+
+                    #interface .navigation .search input {
+                        border: none;
+                        outline: none;
+                        font-size: 14px;
+                    }
+
+                    #interface .navigation .search i {
+                        margin-right: 14px;
+                    }
+
+                #interface .navigation .profile {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    position: relative;
+                }
+
+                    #interface .navigation .profile i {
+                        margin-right: 20px;
+                        font-style: 20px;
+                        font-weight: 400;
+                    }
+
+                    #interface .navigation .profile img {
+                        width: 30px;
+                        border-radius: 100%;
+                        height: 30px;
+                        object-fit: cover;
+                        display: block;
+                    }
+
+        .profile li {
+            list-style: none;
+        }
+
+        .profile_ul li {
+            list-style: none;
+            padding: 5px;
+        }
+
+            .profile_ul li:hover {
+                background: #ccc;
+            }
+
+        .profile li:hover .profile_ul {
+            display: block;
+        }
+
+        .profile_ul li a {
+            text-decoration: none;
+            font-size: 16px;
+            color: black;
+            padding: 6px 16px;
+            display: block;
+        }
+
+        .profile_ul {
+            position: absolute;
+            padding-left: 0;
+            top: 40px;
+            right: 0;
+            list-style: none;
+            background-color: #fff;
+            width: 160px;
+            border-radius: 2px;
+            z-index: 2;
+            box-shadow: 0 2px 10px #ccc;
+            display: none;
+        }
+
+            .profile_ul::after {
+                z-index: 2;
+                content: "";
+                height: 20px;
+                width: 100%;
+                position: absolute;
+                top: -15px;
+            }
+
+        #form-create {
+            position: relative;
+            width: 50%;
+            background-color: #fff;
+            box-shadow: 0px 10px 10px #ccc;
+            margin-left: 20%;
+            margin-top: 2%;
+        }
+
+            #form-create form {
+                padding: 15px;
+            }
+    </style>
+}
+<section id="interface">
+    <div class="navigation">
+        <div class="n1">
+            <div class="search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Tìm kiếm" name="" id="">
+            </div>
+        </div>
+        <div class="profile">
+            <i class="fa fa-bell"></i>
+            <li>
+                @if (Context.Session.GetString("UrlIamge") == null || Context.Session.GetString("UrlIamge").Equals(""))
+                {
+                    <a href=""><img src="https://res.cloudinary.com/dgtjdhrnq/image/upload/v1678894055/download_g8pszb.png" alt=""></a>
+                }
+                else
+                {
+                    <a href=""><img src="@Context.Session.GetString("UrlIamge")" alt=""></a>
+                }
+                <ul class="profile_ul">
+                    <li><a asp-action="Profile" asp-controller="Admin">Hồ sơ</a></li>
+                    <li><a asp-action="DoiMatKhau" asp-controller="Admin">Đổi mật khẩu</a></li>
+                    <li><a asp-action="Index" asp-controller="Login">Đăng xuất</a></li>
+                </ul>
+            </li>
+        </div>
+    </div>
+    @Html.Raw(TempData["Message"])
+    <h1 style="margin-left:30%; margin-top:20px">Sửa Thông Tin</h1>
+    <div id="form-create">
+        <form method="post" enctype="multipart/form-data" asp-action="EditProfile" asp-controller="Admin">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Mã Nhân Viên</label>
+                <input type="text" readonly class="form-control" asp-for="EmployeeId">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Họ Tên</label>
+                <input type="text" class="form-control" asp-for="HoTen">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Ngày Sinh</label>
+                <input type="date" class="form-control" asp-for="NgaySinh">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Giới Tính</label><br>
+                @if (Model.GioiTinh == "Nam")
+                {
+                    <input type="checkbox" name="GioiTinh" checked value="Nam" />
+
+                    <span>Nam</span>
+                    <input type="checkbox" name="GioiTinh" value="Nữ" />
+
+                    <span>Nữ</span>
+                }
+                else
+                {
+                    <input type="checkbox" name="GioiTinh" value="Nam" />
+
+                    <span>Nam</span>
+                    <input type="checkbox" name="GioiTinh" checked value="Nữ" />
+
+                    <span>Nữ</span>
+                }
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Địa Chỉ</label>
+                <input type="text" class="form-control" asp-for="DiaChi" />
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Số Điện Thoại</label>
+                <input type="text" class="form-control" asp-for="Phone" />
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Ngày Vào</label>
+                <input type="date" class="form-control" asp-for="NgayVao" />
+            </div>
+            @*<span>Chức Vụ</span><br />
+            <select style="pointer-events: none;" class="form-select form-select-sm" asp-for="ChucVu" aria-label=".form-select-sm example">
+                <option value=""></option>
+                <option value="0">Giám Đốc</option>
+                <option value="1">Nhân Viên</option>
+            </select><br /><br />*@
+            <div class="mb-3">
+                <label for="formFileSm" class="form-label">Ảnh</label>
+                <input class="form-control form-control-sm" name="file" type="file">
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+</section>

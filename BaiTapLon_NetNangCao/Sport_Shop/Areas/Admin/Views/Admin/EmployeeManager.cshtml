@@ -1,0 +1,280 @@
+﻿@model List<Sport_Shop.Areas.Admin.Models.Emoloyee>
+@{
+    ViewData["Title"] = "EmployeeManager";
+    Layout = "~/Areas/Admin/Views/Shared/Admin/Layout.cshtml";
+    <link rel="stylesheet" href="~/css/Admin/profile.css">
+    int pagetruoc = ViewBag.page-1;
+    int pagesau = ViewBag.page+1;
+    <style>
+.i-name {
+color: #444a53;
+padding: 30px 30px 0 30px;
+font-size: 24px;
+font-weight: 700;
+text-align:center;
+}
+
+.values {
+padding: 15px 30px 0 30px;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+flex-wrap: wrap;
+gap: 15px;
+}
+
+.values .val-box {
+background: #fff;
+width: 300px;
+padding: 16px 20px;
+border-radius: 5px;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+}
+
+.values .val-box i {
+font-size: 25px;
+width: 60px;
+height: 60px;
+line-height: 60px;
+border-radius: 50%;
+text-align: center;
+color: #fff;
+background: chartreuse;
+margin-right: 15px;
+}
+
+.values .val-box h3 {
+font-size: 18px;
+font-weight: 600;
+}
+
+.values .val-box span {
+font-size: 15px;
+color: #828997;
+}
+
+
+
+
+
+
+
+
+.board {
+width: 100%;
+margin: 10px 0 10px 0;
+overflow: auto;
+background: #fff;
+border-radius: 8px;
+}
+
+.board img {
+width: 45px;
+height: 45px;
+object-fit: cover;
+border-radius: 50%;
+margin-right: 15px;
+}
+
+.board h2 {
+font-weight: 600;
+font-size: 14px;
+}
+
+.board h2 {
+font-weight: 400;
+font-size: 13px;
+color: #787d8d;
+}
+.board .people {
+display: flex;
+justify-content: flex-start;
+align-items: center;
+}
+
+.people-de p{
+margin-bottom:0px;
+}
+table {
+border-collapse: collapse;
+}
+
+tr {
+border-bottom: 1px solid #eef0f3;
+}
+
+thead td {
+font-size: 14px;
+text-transform: uppercase;
+font-weight: 400;
+background-color: #F9FAF8;
+text-align: start;
+padding: 15px;
+}
+
+tbody tr td {
+padding: 10px 15px;
+}
+
+.active p {
+background: #d7fada;
+padding: 2px 10px;
+display: inline-block;
+border-radius: 40px;
+color: #2b2b2b;
+}
+
+.edit a {
+text-decoration: none;
+font-size: 15px;
+font-weight: 600;
+margin:5px;
+}
+
+.edit a:nth-child(1)
+{
+color:cornflowerblue;
+}
+
+.edit a:nth-child(2) {
+color: crimson;
+}
+.page{
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.page a {
+    font-size: 12px;
+    color: #fff;
+    text-decoration: none;
+    margin: 0 5px;
+    width: 30px;
+    height: 30px;
+    background: #362f2f;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom:20px;
+}
+
+</style>
+}
+<section id="interface">
+    <div class="navigation">
+        <div class="n1">
+            <div class="search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Tìm kiếm" name="" id="">
+            </div>
+        </div>
+        <div class="profile">
+            <i class="fa fa-bell"></i>
+            <li>
+                @if (Context.Session.GetString("UrlIamge") == null || Context.Session.GetString("UrlIamge").Equals(""))
+                {
+                    <a href=""><img src="https://res.cloudinary.com/dgtjdhrnq/image/upload/v1678894055/download_g8pszb.png" alt=""></a>
+                }
+                else
+                {
+                    <a href=""><img src="@Context.Session.GetString("UrlIamge")" alt=""></a>
+                }
+                <ul class="profile_ul">
+                    <li><a asp-action="Profile" asp-controller="Admin">Hồ sơ</a></li>
+                    <li><a asp-action="DoiMatKhau" asp-controller="Admin">Đổi mật khẩu</a></li>
+                    <li><a asp-action="Index" asp-controller="Login">Đăng xuất</a></li>
+                </ul>
+            </li>
+        </div>
+    </div>
+    @Html.Raw(TempData["Message"])
+    <h3 class="i-name">Quản Lý Nhân Viên</h3>
+    <div>
+        <a asp-action="AddEmployee" asp-controller="Admin" style="margin-left:10px"><i class="fa-thin fa-plus"></i> Thêm</a>
+    </div>
+    <div class="board">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Họ Tên</td>
+                    <td>Giới Tính</td>
+                    <td>Địa Chỉ</td>
+                    <td>Ngày Sinh</td>
+                    <td>Ngày Vào</td>
+                    <td>Chức Vụ</td>
+                    <td>Acitve</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@item.EmployeeId</td>
+                        <td class="people">
+                            @if(item.Anh=="" || item.Anh==null)
+                            {
+                                <img src="https://res.cloudinary.com/dgtjdhrnq/image/upload/v1678894055/download_g8pszb.png" alt="">
+                            }
+                            else
+                            {
+                                <img src="@item.Anh"/>
+                            }
+                            <div class="people-de">
+                                <h2>@item.HoTen</h2>
+                                <p>@item.Phone</p>
+                            </div>
+                        </td>
+                        <td class="people-des">
+                            <h2></h2>
+                            <p>@item.GioiTinh</p>
+                        </td>
+                        <td class="people-des">
+                            <h2></h2>
+                            <p>@item.DiaChi</p>
+                        </td>
+                        <td class="active">
+                            <p>@item.NgaySinh.ToString("dd/MM/yyyy")</p>
+                        </td>
+                        <td class="active">
+                            <p>@item.NgayVao.ToString("dd/MM/yyyy")</p>
+                        </td>
+                        <td class="role">
+                            @if (item.ChucVu == 0)
+                            {
+                                <p>Giám Đốc</p>
+                            }
+                            else
+                            {
+                                <p>Nhân Viên</p>
+                            }
+                        </td>
+                        <td class="edit">
+                            <a asp-action="EditEmployee" asp-controller="Admin" asp-route-id="@item.EmployeeAccountId"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a asp-action="DeleteEmployee" onclick="return confirm('Bạn chắc chắn xóa nhân viên @item.HoTen không?')" asp-controller="Admin" asp-route-id="@item.EmployeeAccountId"><i class="fa-solid fa-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="page">
+        
+        <a asp-controller="Admin" asp-action="EmployeeManager" asp-route-page="@pagetruoc"><i class="fa-solid fa-chevron-left"></i></a>
+        <a href="">@ViewBag.page</a></li>
+        @if(ViewBag.page==ViewBag.Count)
+        {
+            <a style="display:none" asp-controller="Admin" asp-action="EmployeeManager" asp-route-page="@pagesau"><i class="fa-solid fa-chevron-right"></i></a>
+        }
+        else
+        {
+            <a asp-controller="Admin" asp-action="EmployeeManager" asp-route-page="@pagesau"><i class="fa-solid fa-chevron-right"></i></a>
+        }
+        </div>
+</section>
+

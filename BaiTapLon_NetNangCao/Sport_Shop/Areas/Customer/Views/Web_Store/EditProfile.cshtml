@@ -1,0 +1,230 @@
+﻿@model Sport_Shop.Areas.Customer.Models.Customer
+@{
+    ViewData["Title"] = "EditProfile";
+    Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
+    <link rel="stylesheet" href="~/assets/css/EditProfile1.css">
+    <style>
+        #toast-container {
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 40%;
+        }
+        .toast {
+            display: inline-block;
+            padding: 10px;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 14px;
+            line-height: 1.4;
+            margin: 10px;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+            .toast.toast-error {
+                background-color: #e74c3c;
+            }
+
+            .toast.show {
+                opacity: 1;
+                transform: translateY(0);
+            }
+    </style>
+}
+<div class="app_container">
+    <div id="account_user_container">
+        <div class="account_user">
+            <div class="account_user_left">
+                <div class="header_accountuser">
+                    <div class="img">
+                        @if (Context.Session.GetString("imageUrl") != "")
+                        {
+                            <img src="@Context.Session.GetString("imageUrl")" alt="">
+                        }
+                        else
+                        {
+                            <img src="https://res.cloudinary.com/dbnr304ms/image/upload/v1681582357/download_jxyp8d.jpg" alt="">
+                        }
+                    </div>
+                    <div class="accountname">
+                        <p>@Context.Session.GetString("Username")</p>
+                    </div>
+                </div>
+                <ul class="menu_accountuser">
+                    <p><i class="fas fa-user"></i>Tài khoản của tôi</p>
+                    <li><a asp-action="EditProfile" asp-controller="Web_Store">Hồ sơ</a></li>
+                    <li><a asp-action="EditPassword" asp-controller="Web_Store">Đổi mật khẩu</a></li>
+                </ul>
+            </div>
+            <div class="account_user_right">
+                <div class="profile">
+                    <div class="profile_header">
+                        <h3>Hồ sơ của tôi</h3>
+                        <p>Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
+                    </div>
+                    <form id="UpdateProfileCustomer" enctype="multipart/form-data">
+                        <div class="content_profile">
+                            <div class="content_profile-left">
+                                <table>
+                                    <tr>
+                                        <td><p>Tên đăng nhập</p></td>
+                                        <td>@Model.TaiKhoan</td>
+                                    </tr>
+                                    <tr>
+                                        <td><p>Tên</p></td>
+                                        <td>
+                                            <div>
+                                                <input type="text" asp-for="HoTen">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><p>Số điện thoại</p></td>
+                                        <td>
+                                            <div>
+                                                <input type="text" asp-for="Phone">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><p>Giới tính</p></td>
+                                        <td>
+                                            <div>
+                                                @if (Model.GioiTinh == "Nam")
+                                                {
+                                                    <input asp-for="GioiTinh" value="Nam" checked type="radio">
+
+                                                    <span>Nam</span>
+                                                    <input asp-for="GioiTinh" value="Nữ" type="radio">
+
+                                                    <span>Nữ</span>
+                                                }
+                                                else if (Model.GioiTinh == "Nữ")
+                                                {
+                                                    <input asp-for="GioiTinh" value="Nam" type="radio">
+
+                                                    <span>Nam</span>
+                                                    <input asp-for="GioiTinh" value="Nữ" checked type="radio">
+
+                                                    <span>Nữ</span>
+                                                }
+                                                else
+                                                {
+                                                    <input asp-for="GioiTinh" value="Nam" type="radio">
+
+                                                    <span>Nam</span>
+                                                    <input asp-for="GioiTinh" value="Nữ" type="radio">
+
+                                                    <span>Nữ</span>
+                                                }
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><p>Ngày Sinh</p></td>
+                                        <td>
+                                            <div>
+                                                <input type="date" asp-for="NgaySinh">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><p>Địa chỉ</p></td>
+                                        <td>
+                                            <div>
+                                                <input type="text" asp-for="DiaChi">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <button type="submit" class="btn">Lưu</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="content_profile-mid">
+                            </div>
+                            <div class="content_profile-right">
+                                <div class="image">
+                                    @if (Context.Session.GetString("imageUrl")!="")
+                                    {
+                                        <img id="imagePreview" src="@Context.Session.GetString("imageUrl")" alt="">
+                                    }
+                                    else
+                                    {
+                                        <img id="imagePreview" src="https://res.cloudinary.com/dbnr304ms/image/upload/v1681582357/download_jxyp8d.jpg" alt="">
+                                    }
+                                </div>
+                                <div class="action">
+                                    <input id="choose-file" style="display:none" name="file" type="file">
+                                    <a onclick="document.getElementById('choose-file').click()">Chọn Ảnh</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="toast-container">
+    <div class="toast toast-error">
+        <div class="toast-message"></div>
+    </div>
+</div>
+
+<script>
+    const inputFile = document.getElementById('choose-file');
+    const imagePreview = document.getElementById('imagePreview');
+
+    inputFile.addEventListener('change', function () {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+
+            reader.addEventListener('load', function () {
+                imagePreview.src = reader.result;
+                imagePreview.style.display = 'block';
+            });
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#UpdateProfileCustomer").submit(function (event) {
+            event.preventDefault(); // Ngăn chặn form được gửi đi
+            var form = $(this);
+            var formData = new FormData(form[0]); // Lấy dữ liệu form
+            $.ajax({
+                type: "POST",
+                url: "/Customer/Web_Store/UpdateProfileCustomer",
+                data: formData,
+                processData: false, // Không xử lý dữ liệu truyền vào
+                contentType: false, // Không thiết lập kiểu dữ liệu cho dữ liệu truyền vào
+                success: function (result) {
+                    const message = document.querySelector('.toast-message');
+                    message.innerHTML = 'Cập nhật hồ sơ thành công';
+                    const toast = document.querySelector('.toast');
+                    toast.classList.add('show');
+                    toast.style.background = '#4CAF50';
+                    setTimeout(() => {
+                        toast.classList.remove('show');
+                    }, 2000);
+                    setTimeout(() => {
+                        location.reload();
+                    }, 500);
+                }
+            });
+        });
+    });
+
+</script>
+

@@ -1,0 +1,245 @@
+﻿
+@{
+    ViewData["Title"] = "SearchProduct";
+    Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
+}
+<div class="app_container">
+    <div class="gird">
+        <div class="gird__row app__content">
+            <div class="gird__column-2">
+                <nav class="category">
+                    <h3 class="category-heading">
+                        Danh Mục
+                    </h3>
+                    <ul class="category-list">
+                        @foreach (var category in ViewBag.Category)
+                        {
+                            <li class="category-item">
+                                <a style="cursor:pointer" onclick="Category(@category.CategoryId)" class="category-item__link">@category.TenDanhMuc</a>
+                            </li>
+                        }
+                        @*<li class="category-item category-item-active">
+                            <a href="" class="category-item__link">Trang điểm mắt</a>
+                        </li>
+                        <li class="category-item ">
+                            <a href="" class="category-item__link">Trang điểm môi</a>
+                        </li>
+                        <li class="category-item">
+                            <a href="" class="category-item__link">Trang điểm người</a>
+                        </li>*@
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="gird__column-10">
+                <div class="home-filter">
+                    <span class="home-filter_label">Sắp xếp theo</span>
+                    <button class="btn home-filter_btn">Phổ biến</button>
+                    <button class="btn home-filter_btn btn--primary">Mới nhất</button>
+                    <button class="btn home-filter_btn ">Bán chạy</button>
+
+
+                    <div class="select-input">
+                        <span class="select-input__label">
+                            Giá
+                        </span>
+                        <i class="fas fa-angle-down"></i>
+                        <ul class="select-input_list">
+                            <li class="select-input_item">
+                                <a href="" class="select-input_link">Giá: Thấp đến Cao</a>
+                            </li>
+                            <li class="select-input_item">
+                                <a href="" class="select-input_link">Giá: Cao đến Thấp</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="home-filter_page">
+                        <span class="home-filter_page-num">
+                            <span class="home-filter_page-current">1</span>/14
+                        </span>
+                        <div class="home-filter_page-control">
+                            <a href="" class="home-filter_page-btn home-filter_page-btn-disabled"><i class="home-filter_page-icon fas fa-angle-left"></i></a>
+                            <a href="" class="home-filter_page-btn"><i class="home-filter_page-icon fas fa-angle-right"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="home-product">
+                    <!-- gird ->row->column -->
+                    <div class="gird__row ">
+                        @foreach(var product in ViewBag.ListProductSearch)
+                        {
+                            <div class="gird__column-2-4 ">
+                                <a asp-action="ProductDetail" asp-controller="Web_Store" asp-route-id="@product.ProductId" class="home-product-item">
+                                    <img class="home-product-item_img" src="@product.Anh">
+                                    <h4 class="home-product-item_name">
+                                        @product.TenSanPham
+                                    </h4>
+                                    <div class="home-product-item_price">
+                                        <span class="home-product-item_price-old">@product.Gia</span>
+                                        <span class="home-product-item_price-current">@(product.Gia-product.Gia * product.GiamGia/100)</span>
+                                    </div>
+                                    <div class="home-product-item_action">
+                                        <span class="home-product-item_like home-product-item_like--liked">
+                                            <i class="home-product-item_like-icon-empty far fa-heart"></i>
+                                            <i class="home-product-item_like-icon-fill fas fa-heart"></i>
+                                        </span>
+                                        
+                                        <span class="home-product-item_sold">88 đã bán</span>
+                                    </div>
+
+                                    <div class="home-product-item_origin">
+                                        <span class="home-product-item_brand">Whoo</span>
+                                        <span class="home-product-item_origin-name">Việt Nam</span>
+                                    </div>
+                                    <div class="home-product-item_favourite">
+                                        <i class="fas fa-check"></i>
+                                        <span>Yêu thích</span>
+                                    </div>
+                                    <div class="home-product-item_sale-off">
+                                        <span class="home-product-item_sale-off-percent">@product.GiamGia%</span>
+                                        <span class="home-product-item_sale-off-label">Giảm</span>
+                                    </div>
+                                </a>
+
+                                <div class="add-cart">
+                                    <p><a href="">Thêm giỏ hàng</a></p>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+
+                @*<ul class="pagination home-product_pagination">
+                    <li class="pagination-item ">
+                        <a href="" class="pagination-item_link">
+                            <i class="pagination-item_icon fas fa-angle-left"></i>
+                        </a>
+                    </li>
+                    <li class="pagination-item pagination-item_active">
+                        <a href="" class="pagination-item_link">
+                            1
+                        </a>
+                    </li>
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item_link">
+                            2
+                        </a>
+                    </li>
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item_link">
+                            3
+                        </a>
+                    </li>
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item_link">
+                            4
+                        </a>
+                    </li>
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item_link">
+                            5
+                        </a>
+                    </li>
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item_link">
+                            ...
+                        </a>
+                    </li>
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item_link">
+                            14
+                        </a>
+                    </li>
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item_link">
+                            <i class="pagination-item_icon fas fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    
+    let Gias = document.querySelectorAll(".home-product-item_price-current");
+    let GiaTiens = document.querySelectorAll(".home-product-item_price-old");
+
+
+    // Duyệt qua từng thẻ span và định dạng lại nội dung
+    Gias.forEach(function (span) {
+        let numString = span.innerHTML;
+        let formattedNum = Number(numString).toLocaleString();
+        span.innerHTML = formattedNum;
+    });
+    GiaTiens.forEach(function (span) {
+        let numString = span.innerHTML;
+        let formattedNum = Number(numString).toLocaleString();
+        span.innerHTML = formattedNum;
+    });
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+@*Bắt sự kiện khi ấn enter thì tìm kiếm sản phẩm*@
+<script>
+    function Category(categoryId) {
+        console.log(categoryId)
+        $.ajax
+        ({
+            url: "/Customer/Web_Store/SearchProduct_Category",
+            type: "GET",
+            dataType: 'json',
+            data: { id: categoryId },
+            success: function (result) {
+                var html = '<div class="gird__row">';
+                $.each(result, function (i, item) {
+                    html+='<div class="gird__column-2-4 ">';
+                        html += '<a href="/Customer/Web_Store/ProductDetail/'+item.maSP + '" class="home-product-item">';
+                    html+='<img class="home-product-item_img" src="'+item.anh+'">';
+                    html+='<h4 class="home-product-item_name">'+item.tenSanPham+'</h4>';
+                    html+='<div class="home-product-item_price">';
+                    html+='<span class="home-product-item_price-old">'+item.gia+'</span>';
+                    html+='<span class="home-product-item_price-current">'+(item.gia-item.gia*item.giamGia/100)+'</span></div>';
+                    html+='<div class="home-product-item_action"><span class="home-product-item_like home-product-item_like--liked"><i class="home-product-item_like-icon-empty far fa-heart"></i>';
+                    html+='<i class="home-product-item_like-icon-fill fas fa-heart"></i></span><span class="home-product-item_sold">88 đã bán</span></div>';
+                    html+='<div class="home-product-item_origin"><span class="home-product-item_brand">Whoo</span><span class="home-product-item_origin-name">Việt Nam</span></div>';
+                    html+='<div class="home-product-item_favourite"><i class="fas fa-check"></i><span>Yêu thích</span></div>';
+                    html+='<div class="home-product-item_sale-off">';
+                    html+='<span class="home-product-item_sale-off-percent">'+(item.giamGia)+'%</span><br>'
+                    html+='<span class="home-product-item_sale-off-label">Giảm</span>';
+                    html+='</div></a>';
+                    html+='<div class="add-cart">';
+                    html+='<p><a href="">Thêm giỏ hàng</a></p>';
+                    html+='</div></div>';
+                });
+                    html += '</div>';
+                    $('.home-product').html(html);
+
+
+
+                    //format số
+                    let Gias = document.querySelectorAll(".home-product-item_price-current");
+                    let GiaTiens = document.querySelectorAll(".home-product-item_price-old");
+                    Gias.forEach(function (span) {
+                        let numString = span.innerHTML;
+                        let formattedNum = Number(numString).toLocaleString();
+                        span.innerHTML = formattedNum;
+                    });
+                    GiaTiens.forEach(function (span) {
+                        let numString = span.innerHTML;
+                        let formattedNum = Number(numString).toLocaleString();
+                        span.innerHTML = formattedNum;
+                    });
+
+            },
+            error: function () {
+                alert("Lỗi");
+            }    
+       });
+    }
+        
+</script>
+               

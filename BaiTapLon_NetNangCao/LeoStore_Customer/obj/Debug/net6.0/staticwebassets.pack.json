@@ -1,0 +1,329 @@
+{
+  "Files": [
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\LeoStore_Customer.bundle.scp.css",
+      "PackagePath": "staticwebassets\\LeoStore_Customer.bundle.scp.css"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\assets\\css\\DanhSachSanPham.css",
+      "PackagePath": "staticwebassets\\assets\\css\\DanhSachSanPham.css"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\assets\\css\\base.css",
+      "PackagePath": "staticwebassets\\assets\\css\\base.css"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\assets\\css\\main.css",
+      "PackagePath": "staticwebassets\\assets\\css\\main.css"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\assets\\css\\shopee.css",
+      "PackagePath": "staticwebassets\\assets\\css\\shopee.css"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\assets\\css\\trangchu.css",
+      "PackagePath": "staticwebassets\\assets\\css\\trangchu.css"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\assets\\img\\app.png",
+      "PackagePath": "staticwebassets\\assets\\img\\app.png"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\assets\\img\\avata.png",
+      "PackagePath": "staticwebassets\\assets\\img\\avata.png"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\assets\\img\\d91264e165ed6facc6178994d5afae79.png",
+      "PackagePath": "staticwebassets\\assets\\img\\d91264e165ed6facc6178994d5afae79.png"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\assets\\img\\gale.png",
+      "PackagePath": "staticwebassets\\assets\\img\\gale.png"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\assets\\img\\gg.png",
+      "PackagePath": "staticwebassets\\assets\\img\\gg.png"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\assets\\img\\sto.png",
+      "PackagePath": "staticwebassets\\assets\\img\\sto.png"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\assets\\img\\trieu.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\trieu.jpg"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\css\\Login.css",
+      "PackagePath": "staticwebassets\\css\\Login.css"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\js\\Login.js",
+      "PackagePath": "staticwebassets\\js\\Login.js"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\js\\comment.js",
+      "PackagePath": "staticwebassets\\js\\comment.js"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\js\\modal.js",
+      "PackagePath": "staticwebassets\\js\\modal.js"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "H:\\Trieu\\Nam_3\\Ki_2\\.Net Nâng Cao\\BaiTapLon\\BaiTapLon_NetNangCao\\LeoStore_Customer\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.LeoStore_Customer.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.LeoStore_Customer.props",
+      "PackagePath": "build\\LeoStore_Customer.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.LeoStore_Customer.props",
+      "PackagePath": "buildMultiTargeting\\LeoStore_Customer.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.LeoStore_Customer.props",
+      "PackagePath": "buildTransitive\\LeoStore_Customer.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

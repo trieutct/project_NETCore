@@ -1,0 +1,53 @@
+﻿@model LeoStore_Customer.Models.RegisterCustomerModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <link rel="stylesheet" href="~/css/Login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    @if (TempData["Message"] != null)
+    {
+        @Html.Raw(TempData["Message"]);
+    }
+    <div id="page">
+        <div class="logo">
+            <ion-icon name="logo-react"></ion-icon>
+        </div>
+        <div class="content">
+            <div class="left">
+                <div class="title">
+                    <h1></h1>
+                </div>
+                <p>Xin chào quý khách đã đến của LeO Store</p>
+                <button><a asp-action="Index" asp-controller="Login">Đăng Nhập</a></button>
+            </div>
+            <div class="right">
+                <form asp-action="Index" method="post" asp-controller="Register">
+                    <h1>ĐĂNG KÝ</h1>
+                    <input type="text" asp-for="TaiKhoan" id="" placeholder="Tài khoản">
+                    <input type="password" asp-for="MatKhau" placeholder="Mật khẩu">
+                    <input type="password" asp-for="CfMatKhau" placeholder="Nhập lại mật khẩu">
+                    <input type="submit" value="ĐĂNG KÝ">
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="~/js/Login.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

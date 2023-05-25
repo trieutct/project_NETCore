@@ -1,0 +1,87 @@
+﻿@model List<Sport_Shop.Areas.Admin.Models.Category>
+@{
+    ViewData["Title"] = "CategoryManager";
+    Layout = "~/Areas/Admin/Views/Shared/Admin/Layout.cshtml";
+    <link rel="stylesheet" href="~/css/Admin/profile.css">
+    <style>
+.i-name {
+color: #444a53;
+padding: 30px 30px 0 30px;
+font-size: 24px;
+font-weight: 700;
+text-align: center;
+}
+
+#form-create{
+position: relative;
+width: 40%;
+background-color: #fff;
+box-shadow: 0px 10px 10px #ccc;
+margin-left: 30%;
+}
+#form-create form{
+padding: 15px;
+}
+    </style>
+}
+
+<section id="interface">
+    <div class="navigation">
+        <div class="n1">
+            <div class="search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Tìm kiếm" name="" id="">
+            </div>
+        </div>
+        <div class="profile">
+            <i class="fa fa-bell"></i>
+            <li>
+                @if (Context.Session.GetString("UrlIamge") == null || Context.Session.GetString("UrlIamge").Equals(""))
+                {
+                    <a href=""><img src="https://res.cloudinary.com/dgtjdhrnq/image/upload/v1678894055/download_g8pszb.png" alt=""></a>
+                }
+                else
+                {
+                    <a href=""><img src="@Context.Session.GetString("UrlIamge")" alt=""></a>
+                }
+                <ul class="profile_ul">
+                    <li><a asp-action="Profile" asp-controller="Admin">Hồ sơ</a></li>
+                    <li><a asp-action="DoiMatKhau" asp-controller="Admin">Đổi mật khẩu</a></li>
+                    <li><a asp-action="Index" asp-controller="Login">Đăng xuất</a></li>
+                </ul>
+            </li>
+        </div>
+    </div>
+    @Html.Raw(TempData["Message"])
+    <h3 class="i-name">Danh Sách Loại Sản Phẩm</h3>
+    <div>
+        <a asp-action="AddCategory" asp-controller="Admin" style="margin-left:30%"><i class="fa-thin fa-plus"></i> Thêm</a>
+    </div>
+    <div id="form-create">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Loại Sản Phẩm</th>
+                    <th colspan="2">Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.CategoryId</th>
+                        <td>@item.TenDanhMuc</td>
+                        <td><a><i class="fa-solid fa-eye"></i></a></td>
+                        <td>
+                            <a asp-action="EditCategory" asp-controller="Admin" asp-route-id="@item.CategoryId"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a style="padding-left:5px;color:red" asp-action="DeleteCategory" onclick="return confirm('Bạn chắc chắn xóa không?')" asp-controller="Admin" asp-route-id="@item.CategoryId"><i class="fa-sharp fa-solid fa-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+

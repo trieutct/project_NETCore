@@ -1,0 +1,585 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //toast-message-erro
+    <style>
+        #toast-container {
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 40%;
+        }
+
+        .toast {
+            display: inline-block;
+            padding: 10px;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 14px;
+            line-height: 1.4;
+            margin: 10px;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+            .toast.toast-error {
+                background-color: #e74c3c;
+            }
+
+            .toast.show {
+                opacity: 1;
+                transform: translateY(0);
+            }
+    </style>
+}
+<div id="wp-products">
+    <h2>SẢN PHẨM CỦA CHÚNG TÔI</h2>
+    <ul id="list-products">
+        <div class="item">
+            <img src="/img/2.jpg" alt="">
+            <div class="stars">
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+            </div>
+
+            <div class="name">
+                Món ăn 1
+            </div>
+            <div class="desc">
+                Mô tả sản phẩm
+            </div>
+            <div class="price">
+                <span>20000</span> VNĐ
+            </div>
+        </div>
+        <div class="item">
+            <img src="/img/2.jpg" alt="">
+            <div class="stars">
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+            </div>
+
+            <div class="name">
+                Món ăn 1
+            </div>
+            <div class="desc">
+                Mô tả sản phẩm
+            </div>
+            <div class="price">
+                <span>20000</span> VNĐ
+            </div>
+        </div>
+        <div class="item">
+            <img src="/img/2.jpg" alt="">
+            <div class="stars">
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+            </div>
+
+            <div class="name">
+                Món ăn 1
+            </div>
+            <div class="desc">
+                Mô tả sản phẩm
+            </div>
+            <div class="price">
+                <span>20000</span> VNĐ
+            </div>
+        </div>
+        <div class="item">
+            <img src="/img/2.jpg" alt="">
+            <div class="stars">
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+            </div>
+
+            <div class="name">
+                Món ăn 1
+            </div>
+            <div class="desc">
+                Mô tả sản phẩm
+            </div>
+            <div class="price">
+                <span>20000</span> VNĐ
+            </div>
+        </div>
+        <div class="item">
+            <img src="/img/2.jpg" alt="">
+            <div class="stars">
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+            </div>
+
+            <div class="name">
+                Món ăn 1
+            </div>
+            <div class="desc">
+                Mô tả sản phẩm
+            </div>
+            <div class="price">
+                <span>20000</span> VNĐ
+            </div>
+        </div>
+        <div class="item">
+            <img src="/img/2.jpg" alt="">
+            <div class="stars">
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+            </div>
+
+            <div class="name">
+                Món ăn 1
+            </div>
+            <div class="desc">
+                Mô tả sản phẩm
+            </div>
+            <div class="price">
+                <span>20000</span> VNĐ
+            </div>
+        </div>
+        <div class="item">
+            <img src="/img/2.jpg" alt="">
+            <div class="stars">
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+            </div>
+
+            <div class="name">
+                Món ăn 1
+            </div>
+            <div class="desc">
+                Mô tả sản phẩm
+            </div>
+            <div class="price">
+                <span>20000</span> VNĐ
+            </div>
+        </div>
+        <div class="item">
+            <img src="/img/2.jpg" alt="">
+            <div class="stars">
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+            </div>
+
+            <div class="name">
+                Món ăn 1
+            </div>
+            <div class="desc">
+                Mô tả sản phẩm
+            </div>
+            <div class="price">
+                <span>20000</span> VNĐ
+            </div>
+        </div>
+    </ul>
+    <div class="list-page">
+        <div class="item">
+            <a href="">1</a>
+        </div>
+        <div class="item">
+            <a href="">2</a>
+        </div>
+        <div class="item">
+            <a href="">3</a>
+        </div>
+        <div class="item">
+            <a href="">4</a>
+        </div>
+        <div class="item">
+            <a href="">5</a>
+        </div>
+    </div>
+</div>
+<div id="saleoff">
+    <div class="box-right">
+    </div>
+</div>
+<div id="comment">
+    <h2>NHẬN XÉT CỦA KHÁCH HÀNG</h2>
+    <div id="comment-body">
+        <div class="prev">
+            <a href="">
+                <i class="fa-solid fa-angle-left"></i>
+            </a>
+        </div>
+        <ul id="list-comment">
+            <li class="item">
+                <div class="avatar">
+                    <img src="/img/avatar.jpg" alt="">
+                </div>
+                <div class="stars">
+                    <span><i class="fa-solid fa-star"></i></span>
+                    <span><i class="fa-solid fa-star"></i></span>
+                    <span><i class="fa-solid fa-star"></i></span>
+                    <span><i class="fa-solid fa-star"></i></span>
+                    <span><i class="fa-solid fa-star"></i></span>
+                </div>
+                <div class="name">
+                    Trịnh Công Triệu
+                </div>
+                <div class="text">
+                    <p>
+                        Bố mẹ quen 1 bác đang tuyển công nhân, lương lậu cũng ổn…
+                        Bố mẹ cũng tâm sự bảo thôi giờ ở nhà, tiền ăn ở ko phải lo, đi làm bao nhiêu thì tiết kiệm để lo cho sau này
+                    </p>
+                </div>
+            </li>
+            <li class="item">
+                <div class="avatar">
+                    <img src="/img/avatar.jpg" alt="">
+                </div>
+                <div class="stars">
+                    <span><i class="fa-solid fa-star"></i></span>
+                    <span><i class="fa-solid fa-star"></i></span>
+                    <span><i class="fa-solid fa-star"></i></span>
+                    <span><i class="fa-solid fa-star"></i></span>
+                    <span><i class="fa-solid fa-star"></i></span>
+                </div>
+                <div class="name">
+                    Trịnh Công Triệu
+                </div>
+                <div class="text">
+                    <p>
+                        Bố mẹ quen 1 bác đang tuyển công nhân, lương lậu cũng ổn…
+                        Bố mẹ cũng tâm sự bảo thôi giờ ở nhà, tiền ăn ở ko phải lo, đi làm bao nhiêu thì tiết kiệm để lo cho sau này
+                    </p>
+                </div>
+            </li>
+            <li class="item">
+                <div class="avatar">
+                    <img src="/img/avatar.jpg" alt="">
+                </div>
+                <div class="stars">
+                    <span><i class="fa-solid fa-star"></i></span>
+                    <span><i class="fa-solid fa-star"></i></span>
+                    <span><i class="fa-solid fa-star"></i></span>
+                    <span><i class="fa-solid fa-star"></i></span>
+                    <span><i class="fa-solid fa-star"></i></span>
+                </div>
+                <div class="name">
+                    Trịnh Công Triệu
+                </div>
+                <div class="text">
+                    <p>
+                        Bố mẹ quen 1 bác đang tuyển công nhân, lương lậu cũng ổn…
+                        Bố mẹ cũng tâm sự bảo thôi giờ ở nhà, tiền ăn ở ko phải lo, đi làm bao nhiêu thì tiết kiệm để lo cho sau này
+                    </p>
+                </div>
+            </li>
+        </ul>
+        <div class="next">
+            <a href="">
+                <i class="fa-solid fa-angle-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
+<script src="~/js/comment.js"></script>
+
+
+
+
+
+
+<div class="modal .js-modal">
+    <div class="modal__overlay">
+    </div>
+    <div class="modal__body">
+        <div class="modal__inner">
+            <!-- dang ky form -->
+            <div class="auth-form form_register">
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Đăng ký</h3>
+                        <span class="auth-form__switch-btn">Đăng nhập</span>
+                    </div>
+                        <div class="auth-form_form">
+                                <div class="auth-form_group">
+                                    <input type="text" id="register_username" class="auth-form_input" placeholder="Nhập tài khoản">
+                                </div>
+                                <div class="auth-form_group">
+                            <input type="password" id="register_password" class="auth-form_input" placeholder="Mật khẩu">
+                                </div>
+                                <div class="auth-form_group">
+                                    <input type="password" id="register_cfpassword" class="auth-form_input" placeholder="Nhập lại mật khẩu">
+                                </div>
+                        </div>
+
+                        <div class="auth-form_aside">
+                            <p class="auth-form_policy-text">
+                                Bằng việc đăng kí, bạn đã đồng ý Shopee về
+                                <a href="" class="auth-form_text-link"> điều khoản dịch vụ </a>&
+                                <a class="auth-form_text-link">chính sách bảo mật</a>
+                            </p>
+                        </div>
+
+                        <div class="auth-form_controls">
+                            <a class="btn auth-form_controls-back">
+                                TRỞ LẠI
+                            </a>
+                            <button onclick=CheckRegister() class="btn btn--primary">
+                                Đăng ký
+                            </button>
+                        </div>
+                </div>
+
+                <div class="auth-form__socials">
+                    <a href="" class=" auth-form__socials--fb btn btn--size-s btn--width-icon">
+                        <i class="auth-form__socials-icon fab fa-facebook-square"></i>
+                        <span class="auth-form__socials-laybal">Kết nói với FB</span>
+                    </a>
+                    <a href="" class=" auth-form__socials--gg btn btn--size-s btn--width-icon">
+                        <i class="auth-form__socials-icon fab fa-google"></i>
+                        <span class="auth-form__socials-laybal">                            Kết nói với GOOGLE                            </span>
+                    </a>
+                </div>
+            </div>
+
+
+            <!-- dang Nhap -->
+            <div class="auth-form form_login">
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Đăng nhập</h3>
+                        <span class="auth-form__switch-btn">Đăng ký</span>
+                    </div>
+                    <div class="auth-form_form">
+                        <div class="auth-form_group">
+                            <input type="text" id="login_username" class="auth-form_input" placeholder="Nhập tài khoản">
+                        </div>
+                        <div class="auth-form_group">
+                            <input type="password" id="login_password" class="auth-form_input" placeholder="Mật khẩu">
+                        </div>
+                    </div>
+
+                    <div class="auth-form_aside">
+                        <div class="auth-form__help">
+                            <a href="" class="auth-form__help-link">Quên mật khẩu</a>
+                            <span class="auth-form__help-span"></span>
+                            <a href="" class="auth-form__help-link">Cần trợ giúp</a>
+                        </div>
+                    </div>
+
+                    <div class="auth-form_controls">
+                        <a class="btn auth-form_controls-back">
+                            TRỞ LẠI
+                        </a>
+                        <button onclick=CheckLogin() class="btn btn--primary">
+                            Đăng nhập
+                        </button>
+                    </div>
+                </div>
+
+                <div class="auth-form__socials">
+                    <a href="" class=" auth-form__socials--fb btn btn--size-s btn--width-icon">
+                        <i class="auth-form__socials-icon fab fa-facebook-square"></i>
+                        <span class="auth-form__socials-laybal">Kết nói với FB</span>
+                    </a>
+                    <a href="" class=" auth-form__socials--gg btn btn--size-s btn--width-icon">
+                        <i class="auth-form__socials-icon fab fa-google"></i>
+                        <span class="auth-form__socials-laybal">                            Kết nói với GOOGLE                            </span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div id="toast-container">
+    <div class="toast toast-error">
+        <div class="toast-message">Đăng nhập thất bại. Vui lòng thử lại!</div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function CheckRegister()
+    {
+        $.ajax(
+            {
+                url: '/Web_Store/CheckRegister',
+                type: 'Get',
+                contentType: 'application/json;charset=utf-8',
+                dataType: 'json',
+                data: { username: document.getElementById('register_username').value,
+                    password: document.getElementById('register_password').value,
+                    cfpassword: document.getElementById('register_cfpassword').value,
+                },
+                success: function (result) {
+                    if(result.success){
+                        const message = document.querySelector('.toast-message');
+                        message.innerHTML = result.message;
+                        const toast = document.querySelector('.toast');
+                        toast.classList.add('show');
+                        toast.style.background = '#4CAF50';
+                        setTimeout(() => {
+                            toast.classList.remove('show');
+                        }, 3000);
+                        showformlogin();// lấy ở file modal.js
+                    }
+                    else
+                    {
+                        const message = document.querySelector('.toast-message');
+                        message.innerHTML=result.message;
+                        const toast = document.querySelector('.toast');
+                        toast.style.background = '#e74c3c';
+                        toast.classList.add('show');
+                        setTimeout(() => {
+                            toast.classList.remove('show');
+                        }, 3000);
+                    }
+                },
+                error: function () {
+                    alert("Lỗi")
+                }
+            }
+            );
+    }
+
+
+
+    function CheckLogin()
+    {
+        console.log(document.getElementById('login_username').value)
+        $.ajax(
+            {
+                url: '/Web_Store/CheckLogin',
+                type: 'Get',
+                contentType: 'application/json;charset=utf-8',
+                dataType: 'json',
+                data: { username: document.getElementById('login_username').value,
+                    password: document.getElementById('login_password').value,
+                },
+                success: function (result) {
+                    if(result.success){
+                        window.location.href = result.redirectToUrl;
+                    }
+                    else
+                    {
+                        const message = document.querySelector('.toast-message');
+                        message.innerHTML=result.message;
+                        const toast = document.querySelector('.toast');
+                        toast.style.background = '#e74c3c';
+                        toast.classList.add('show');
+                        setTimeout(() => {
+                            toast.classList.remove('show');
+                        }, 3000);
+                    }
+                },
+                error: function () {
+                    
+                }
+            }
+            );
+    }
+</script>
+
+

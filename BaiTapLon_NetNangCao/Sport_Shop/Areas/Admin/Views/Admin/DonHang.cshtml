@@ -1,0 +1,612 @@
+﻿@model List<Sport_Shop.Areas.Admin.Models.Order>
+@{
+    ViewData["Title"] = "DonHang";
+    Layout = "~/Areas/Admin/Views/Shared/Admin/Layout.cshtml";
+    <link rel="stylesheet" href="~/css/Admin/profile.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .i-name {
+            color: #444a53;
+            padding: 30px 30px 0 30px;
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .values {
+            padding: 15px 30px 0 30px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+            .values .val-box {
+                background: #fff;
+                width: 300px;
+                padding: 16px 20px;
+                border-radius: 5px;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+            }
+
+                .values .val-box i {
+                    font-size: 25px;
+                    width: 60px;
+                    height: 60px;
+                    line-height: 60px;
+                    border-radius: 50%;
+                    text-align: center;
+                    color: #fff;
+                    background: chartreuse;
+                    margin-right: 15px;
+                }
+
+                .values .val-box h3 {
+                    font-size: 18px;
+                    font-weight: 600;
+                }
+
+                .values .val-box span {
+                    font-size: 15px;
+                    color: #828997;
+                }
+
+
+
+
+
+
+
+
+        .board {
+            width: 100%;
+            margin: 10px 0 10px 0;
+            overflow: auto;
+            background: #fff;
+            border-radius: 8px;
+        }
+
+            .board img {
+                width: 45px;
+                height: 45px;
+                object-fit: cover;
+                border-radius: 50%;
+                margin-right: 15px;
+            }
+
+            .board h2 {
+                font-weight: 600;
+                font-size: 14px;
+            }
+
+            .board h2 {
+                font-weight: 400;
+                font-size: 13px;
+                color: #787d8d;
+            }
+
+            .board .people {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+            }
+
+
+        table {
+            border-collapse: collapse;
+        }
+
+        tr {
+            border-bottom: 1px solid #eef0f3;
+        }
+
+        thead td {
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: 400;
+            background-color: #F9FAF8;
+            text-align: start;
+            padding: 15px;
+        }
+
+        tbody tr td {
+            padding: 10px 15px;
+        }
+
+        .active p {
+            background: #d7fada;
+            padding: 2px 10px;
+            display: inline-block;
+            border-radius: 40px;
+            color: #2b2b2b;
+        }
+
+        .edit a {
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            margin: 5px;
+        }
+
+            .edit a:nth-child(1) {
+                color: cornflowerblue;
+            }
+
+            .edit a:nth-child(2) {
+                color: crimson;
+            }
+
+        .page {
+            list-style: none;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .page a {
+                font-size: 12px;
+                color: #fff;
+                text-decoration: none;
+                margin: 0 5px;
+                width: 30px;
+                height: 30px;
+                background: #362f2f;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+
+    </style>
+}
+<section id="interface">
+    <div class="navigation">
+        <div class="n1">
+            <div class="search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Tìm kiếm" name="" id="searchDonHang">
+            </div>
+        </div>
+        <div class="profile">
+            <i class="fa fa-bell"></i>
+            <li>
+                @if (Context.Session.GetString("UrlIamge") == null || Context.Session.GetString("UrlIamge").Equals(""))
+                {
+                    <a href=""><img src="https://res.cloudinary.com/dgtjdhrnq/image/upload/v1678894055/download_g8pszb.png" alt=""></a>
+                }
+                else
+                {
+                    <a href=""><img src="@Context.Session.GetString("UrlIamge")" alt=""></a>
+                }
+                <ul class="profile_ul">
+                    <li><a asp-action="Profile" asp-controller="Admin">Hồ sơ</a></li>
+                    <li><a asp-action="DoiMatKhau" asp-controller="Admin">Đổi mật khẩu</a></li>
+                    <li><a asp-action="Index" asp-controller="Login">Đăng xuất</a></li>
+                </ul>
+            </li>
+        </div>
+    </div>
+    @Html.Raw(TempData["Message"])
+    <h3 class="i-name">Quản Lý Đơn Hàng</h3>
+    <select id="selectTrangThai" class="w-20 mx-2">
+        <option value="0" >Cần duyệt</option>
+        <option value="1">Duyệt</option>
+        <option value="2">Đang lấy hàng</option>
+        <option value="3">Đang giao</option>
+        <option selected value="4">Đã giao</option>
+        <option value="-1">Bị hủy</option>
+    </select>
+    <div class="board">
+                    
+        <table width="100%">
+            <thead>
+                <tr>
+                    <td>MĐH</td>
+                    <td>Người Nhận</td>
+                    <td>Phone</td>
+                    <td>Địa Chỉ</td>
+                    <td>Tổng Tiền</td>
+                    <td>Ngày Mua</td>
+                    <td>Trạng Thái</td>
+                    <td>Acitve</td>
+                </tr>
+            </thead>
+            <tbody class="toby">
+                @*@foreach (var item in Model)
+                {
+                    <tr>
+                        <td width="5%"><p>@item.OrderId</p></td>
+                        <td style="width:15%;overflow: hidden;width:100%;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 1;text-overflow: ellipsis;" class="people-des">
+                            @*<h2>Trịnh Công Triệu</h2>*@
+                           @* <p>@item.NguoiNhan</p>
+                        </td>
+                        <td style="width:10%" class="people-des">
+                            @*<h2>@item.Phone</h2>*@
+                           @* <p>@item.Phone</p>
+                        </td>
+                        <td style="width:25%" class="people-des">
+                            @*<h2>@item.Phone</h2>*@
+                            @*<p style="overflow: hidden;width:100%;display: block;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 1;text-overflow: ellipsis;">@item.DiaChi</p>
+                        </td>
+                        <td class="active">
+                            <p>@item.NgayDat.ToString("dd/MM/yyyy")</p>
+                        </td>
+                        @if (item.TrangThai == 0)
+                        {
+                            <td style="width:15%" class="active">
+                                <p style="background:red;color:#fff">Chờ duyệt</p>
+                            </td>
+                        }
+                        else if (item.TrangThai == 1)
+                        {
+                            <td style="width:15%" class="active">
+                                <p style="background:red;color:#fff">Đã duyệt</p>
+                            </td>
+                        }
+                        else if(item.TrangThai == 2)
+                        {
+                            <td style="width:15%" class="active">
+                                <p style="background:#E50B37;color:#fff">Đang lấy hàng</p>
+                            </td>
+                        }
+                        else if (item.TrangThai == 3)
+                        {
+                            <td style="width:15%" class="active">
+                                <p style="background:#10AF3F;color:#fff">Đang giao</p>
+                            </td>
+                        }
+                        else if (item.TrangThai == 4)
+                        {
+                            <td style="width:15%" class="active">
+                                <p>Hoàn thành</p>
+                            </td>
+                        }
+                        <td class="edit">
+                            <a data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a asp-action="DeleteEmployee" asp-controller="Admin" asp-route-id=""><i class="fa-solid fa-eye"></i></a>
+                        </td>
+                    </tr>
+                }*@
+            </tbody>
+        </table>
+    </div>
+
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title"></h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                    <select id="Select_EditDonHang" class="form-select">
+                    <option value="1">Duyệt</option>
+                    <option value="2">Đang lấy hàng</option>
+                    <option value="3">Đang giao</option>
+                    <option value="4">Đã giao</option>
+
+                </select>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="SaveTrangThaiDonHang()" data-bs-dismiss="modal">Save</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="orderdetail">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="nameOrder modal-title">Chi Tiết Đon Hàng : 1234</h4>
+                </div>
+
+                <div class="modal-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Sản phẩm</th>
+                                <th>Ảnh</th>
+                                <th>Giá</th>
+                                <th>Số lượng</th>
+                                <th>Size</th>
+                            </tr>
+                        </thead>
+                        <tbody class="orderdetails">
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+    
+</section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function show()
+    {
+        document.getElementById("show").style.display="block";
+    }
+</script>
+<script>
+    document.getElementById("selectTrangThai").addEventListener("change",function()
+    {
+        $.ajax({
+            url: "/Admin/Admin/SearchDonHangByTrangThai",
+            type: "GET",
+            dataType: 'json',
+            data: {trangthai: document.getElementById("selectTrangThai").value },
+            success: function (result) {
+                console.log(document.getElementById("selectTrangThai").value)
+                var html = '';
+                $.each(result, function (i, item) {
+                    html += '<tr>';
+                    html += '<td width="5%"><p>' + item.orderId + '</p></td>';
+                    html += '<td style="width:15%;overflow: hidden;width:100%;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 1;text-overflow: ellipsis;" class="people-des">';
+                    html += '<p>' + item.nguoiNhan + '</p></td>';
+                    html += '<td style="width:10%" class="people-des"><p>' + item.phone + '</p></td>';
+                    html += '<td style="width:25%" class="people-des">';
+                    html += '<p style="overflow: hidden;width:100%;display: block;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 1;text-overflow: ellipsis;">' + item.diaChi + '</p>';
+                    html += '</td>';
+                    html += '<td style="width:5%" class="people-des"><p class="money">' + item.totalPrice + '</p></td>';
+                    const inputDateString = item.ngayDat;
+                    const date = new Date(inputDateString);
+                    const day = date.getDate();
+                    const month = date.getMonth() + 1;
+                    const year = date.getFullYear();
+
+                    const outputDateString = `${day}/${month}/${year}`;
+
+
+                    html += '<td class="active"><p>' + outputDateString + '</p></td>';
+                    if (item.trangThai == 0) {
+                        html += '<td style="width:15%" class="active"><p style="background:red;color:#fff">Chờ duyệt</p></td>';
+                    }
+                    else if (item.trangThai == 1) {
+                        html += '<td style="width:15%" class="active"><p style="background:red;color:#fff">Đã duyệt</p></td>';
+                    }
+                    else if (item.trangThai == 2) {
+                        html += '<td style="width:15%" class="active"><p style="background:#E50B37;color:#fff">Đang lấy hàng</p></td>';
+                    }
+                    else if (item.trangThai == 3) {
+                        html += '<td style="width:15%" class="active"><p style="background:#10AF3F;color:#fff">Đang giao</p></td>';
+                    }
+                    else if (item.trangThai == 4) {
+                        html += '<td style="width:15%" class="active"><p>Hoàn thành</p></td>';
+                    }
+                    else if (item.trangThai == -1) {
+                        html += '<td style="color:red" class=""><p>Bị hủy</p></td>';
+                    }
+                    html += '<td class="edit" style="display:flex">';
+                    html += '<a data-bs-toggle="modal" data-bs-target="#myModal" onclick=editTrangThaiDonHang(' + item.orderId + ')><i class="fa-solid fa-pen-to-square"></i></a>';
+                    html += '<a data-bs-toggle="modal" data-bs-target="#orderdetail" onclick=showorderdetail(' + item.orderId + ')><i class="fa-solid fa-eye"></i></a>';
+                    html += '</td></tr>';
+                });
+                $('.toby').html(html);
+                formatnumber();
+            },
+            error: function () {
+                alert("Lỗi");
+            }
+        });
+    });
+</script>
+<script>
+    var inputElement = document.getElementById("searchDonHang");
+    inputElement.addEventListener("keyup", function (){
+        var inputValue = inputElement.value;
+        $.ajax({
+            url: "/Admin/Admin/SearchDonHang",
+            type: "GET",
+            dataType: 'json',
+            data: { text: inputValue },
+            success: function (result) {
+                var html = '';
+                $.each(result, function (i, item) {
+                    html += '<tr>';
+                    html += '<td width="5%"><p>' + item.orderId + '</p></td>';
+                    html += '<td style="width:15%;overflow: hidden;width:100%;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 1;text-overflow: ellipsis;" class="people-des">';
+                    html += '<p>' + item.nguoiNhan + '</p></td>';
+                    html += '<td style="width:10%" class="people-des"><p>' + item.phone + '</p></td>';
+                    html += '<td style="width:25%" class="people-des">';
+                    html += '<p style="overflow: hidden;width:100%;display: block;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 1;text-overflow: ellipsis;">' + item.diaChi + '</p>';
+                    html += '</td>';
+                    html += '<td style="width:5%" class="people-des"><p class="money">' + item.totalPrice + '</p></td>';
+                    const inputDateString = item.ngayDat;
+                    const date = new Date(inputDateString);
+                    const day = date.getDate();
+                    const month = date.getMonth() + 1;
+                    const year = date.getFullYear();
+
+                    const outputDateString = `${day}/${month}/${year}`;
+
+
+                    html += '<td class="active"><p>' + outputDateString + '</p></td>';
+                    if (item.trangThai == 0) {
+                        html += '<td style="width:15%" class="active"><p style="background:red;color:#fff">Chờ duyệt</p></td>';
+                    }
+                    else if (item.trangThai == 1) {
+                        html += '<td style="width:15%" class="active"><p style="background:red;color:#fff">Đã duyệt</p></td>';
+                    }
+                    else if (item.trangThai == 2) {
+                        html += '<td style="width:15%" class="active"><p style="background:#E50B37;color:#fff">Đang lấy hàng</p></td>';
+                    }
+                    else if (item.trangThai == 3) {
+                        html += '<td style="width:15%" class="active"><p style="background:#10AF3F;color:#fff">Đang giao</p></td>';
+                    }
+                    else if (item.trangThai == 4) {
+                        html += '<td style="width:15%" class="active"><p>Hoàn thành</p></td>';
+                    }
+                    else if (item.trangThai == -1) {
+                        html += '<td style="color:red" class=""><p>Bị hủy</p></td>';
+                    }
+                    html += '<td class="edit" style="display:flex">';
+                    html += '<a data-bs-toggle="modal" data-bs-target="#myModal" onclick=editTrangThaiDonHang(' + item.orderId + ')><i class="fa-solid fa-pen-to-square"></i></a>';
+                    html += '<a data-bs-toggle="modal" data-bs-target="#orderdetail" onclick=showorderdetail(' + item.orderId + ')><i class="fa-solid fa-eye"></i></a>';
+                    html += '</td></tr>';
+                });
+                $('.toby').html(html);
+                formatnumber();
+            },
+            error: function () {
+                alert("Lỗi");
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        Loadata();
+        
+    });
+    function Loadata(){
+        $.ajax({
+            url: "/Admin/Admin/ListDonHang",
+            type: "GET",
+            dataType: 'json',
+            success: function (result) {
+                var html = '';
+                $.each(result, function (i, item) {
+                    html += '<tr>';
+                    html += '<td width="5%"><p>' + item.orderId + '</p></td>';
+                    html += '<td style="width:15%;overflow: hidden;width:100%;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 1;text-overflow: ellipsis;" class="people-des">';
+                    html += '<p>' + item.nguoiNhan + '</p></td>';
+                    html += '<td style="width:10%" class="people-des"><p>' + item.phone + '</p></td>';
+                    html += '<td style="width:25%" class="people-des">';
+                    html += '<p style="overflow: hidden;width:100%;display: block;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 1;text-overflow: ellipsis;">' + item.diaChi + '</p>';
+                    html += '</td>';
+                    html += '<td style="width:5%" class="people-des"><p class="money">' + item.totalPrice + '</p></td>';
+                    const inputDateString = item.ngayDat;
+                    const date = new Date(inputDateString);
+                    const day = date.getDate();
+                    const month = date.getMonth() + 1;
+                    const year = date.getFullYear();
+
+                    const outputDateString = `${day}/${month}/${year}`;
+
+
+                    html += '<td class="active"><p>' + outputDateString + '</p></td>';
+                    if (item.trangThai == 0) {
+                        html += '<td style="width:15%" class="active"><p style="background:red;color:#fff">Chờ duyệt</p></td>';
+                    }
+                    else if (item.trangThai == 1) {
+                        html += '<td style="width:15%" class="active"><p style="background:red;color:#fff">Đã duyệt</p></td>';
+                    }
+                    else if (item.trangThai == 2) {
+                        html += '<td style="width:15%" class="active"><p style="background:#E50B37;color:#fff">Đang lấy hàng</p></td>';
+                    }
+                    else if (item.trangThai == 3) {
+                        html += '<td style="width:15%" class="active"><p style="background:#10AF3F;color:#fff">Đang giao</p></td>';
+                    }
+                    else if (item.trangThai == 4) {
+                        html += '<td style="width:15%" class="active"><p>Hoàn thành</p></td>';
+                    }
+                    else if (item.trangThai == -1) {
+                        html += '<td style="color:red" class=""><p>Bị hủy</p></td>';
+                    }
+                    html += '<td class="edit" style="display:flex">';
+                    html += '<a data-bs-toggle="modal" data-bs-target="#myModal" onclick=editTrangThaiDonHang(' + item.orderId + ')><i class="fa-solid fa-pen-to-square"></i></a>';
+                    html += '<a data-bs-toggle="modal" data-bs-target="#orderdetail" onclick=showorderdetail(' + item.orderId + ')><i class="fa-solid fa-eye"></i></a>';
+                    html += '</td></tr>';
+                });
+                $('.toby').html(html);
+                formatnumber();
+            },
+            error: function () {
+                alert("Lỗi");
+            }
+        });
+    }
+</script>
+<script>
+    let id=0;
+    function editTrangThaiDonHang(madh)
+    {
+        id=madh;
+        console.log(id)
+        console.log(madh)
+    }
+    function SaveTrangThaiDonHang()
+    {
+        $.ajax({
+            url: "/Admin/Admin/EditTrangThaiDonHang",
+            type: "GET",
+            dataType: 'json',
+            data: { madh:id ,text: document.getElementById("Select_EditDonHang").value },
+            success: function (result) {
+                window.location.href = result.redirectToUrl;
+            },
+            error: function () {
+                alert("Lỗi");
+            }
+        });
+    }
+</script>
+<script>
+    function showorderdetail(id)
+    {
+        console.log(id)
+        $.ajax({
+            url: "/Admin/Admin/GetOrderDetailByOrderId",
+            type: "GET",
+            dataType: 'json',
+            data: { madh: id,},
+            success: function (result) {
+                var html = '';
+                $.each(result, function (i, item) {
+                    html+='<tr>';
+                    html+='<td>'+item.tenSanPham+'</td>';
+                    html+='<td><img width="50" height="50" src="'+item.anh+'" /></td>';
+                    html+='<td class="moneydeltail">'+item.gia+'</td>';
+                    html+='<td>'+item.soLuong+'</td>';
+                    html+='<td>'+item.tenSize+'</td>';
+                    html += '</tr>';
+                });
+                $('.orderdetails').html(html);
+                document.querySelector(".nameOrder").innerHTML="Chi Tiết Đơn Hàng: "+id;
+                formatmoneydetail();
+            },
+            error: function () {
+                alert("Lỗi");
+            }
+        });
+    }
+
+
+
+    function formatnumber()
+    {
+        let moneys = document.querySelectorAll(".money");
+        console.log(moneys)
+        moneys.forEach(function (span) {
+            let numString = span.innerHTML;
+            let formattedNum = Number(numString).toLocaleString();
+            span.innerHTML = formattedNum;
+        });
+    }
+    function formatmoneydetail()
+    {
+        let moneys = document.querySelectorAll(".moneydeltail");
+        console.log(moneys)
+        moneys.forEach(function (span) {
+            let numString = span.innerHTML;
+            let formattedNum = Number(numString).toLocaleString();
+            span.innerHTML = formattedNum;
+        });
+    }
+</script>

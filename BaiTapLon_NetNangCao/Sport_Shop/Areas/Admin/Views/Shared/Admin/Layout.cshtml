@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amdin</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="~/css/Admin/Layout.css">
+    <link rel="icon" type="image/x-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxDX3YyZnp8ax4tYjIxh0fywyu79gyHuO1Jg&usqp=CAU">
+</head>
+<body>
+    <section id="menu">
+        <div class="logo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxDX3YyZnp8ax4tYjIxh0fywyu79gyHuO1Jg&usqp=CAU" alt="">
+            <h2>LeO Store</h2>
+        </div>
+        <div class="item">
+            @if(Context.Session.GetInt32("ChucVu")==0)
+            {
+                <li><i class="fa fa-pie-chart"></i><a asp-controller="Admin" asp-action="Index">Thống kê</a></li>
+                <li><i class="fa fa-users"></i><a asp-controller="Admin" asp-action="EmployeeManager">Nhân Viên</a></li>
+                <li><i class="fa fa-users"></i><a asp-controller="Admin" asp-action="CategoryManager">Loại Sản Phẩm</a></li>
+                <li><i class="fa fa-briefcase"></i><a asp-action="ProductManager" asp-controller="Admin">Sản Phẩm</a></li>
+                <li><i class="fa-solid fa-sitemap"></i><a asp-action="SizeManger" asp-controller="Admin">Size</a></li>
+                <li><i class="fa fa-truck"></i><a asp-action="ProductSizeManager" asp-controller="Admin">Kho</a></li>
+                <li><i class="fa fa-truck"></i><a asp-action="DonHang" asp-controller="Admin">Đơn hàng</a></li>
+            }
+            else
+            {
+                <li><i class="fa fa-users"></i><a asp-controller="Admin" asp-action="CategoryManager">Loại Sản Phẩm</a></li>
+                <li><i class="fa fa-briefcase"></i><a asp-action="ProductManager" asp-controller="Admin">Sản Phẩm</a></li>
+                <li><i class="fa-solid fa-sitemap"></i><a asp-action="SizeManger" asp-controller="Admin">Size</a></li>
+                <li><i class="fa fa-truck"></i><a asp-action="ProductSizeManager" asp-controller="Admin">Kho</a></li>
+                <li><i class="fa-solid fa-cart-shopping"></i><a asp-action="DonHang" asp-controller="Admin">Đơn hàng</a></li>
+            }
+            
+        </div>
+    </section>
+    @RenderBody()
+</body>
+</html>

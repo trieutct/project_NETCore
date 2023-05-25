@@ -1,0 +1,383 @@
+﻿@model IEnumerable<Sport_Shop.Areas.Admin.Models.Product>
+@{
+    ViewData["Title"] = "ProductManager";
+    Layout = "~/Areas/Admin/Views/Shared/Admin/Layout.cshtml";
+    <link rel="stylesheet" href="~/css/Admin/DanhSachSanPham.css">
+    <style>
+        .cssbuttons-io-button {
+            display: flex;
+            align-items: center;
+            font-family: inherit;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 6px;
+            color: white;
+            background: #ad5389;
+            background: linear-gradient(0deg, rgba(20,167,62,1) 0%, rgba(102,247,113,1) 100%);
+            border: none;
+            box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+            letter-spacing: 0.05em;
+            border-radius: 20em;
+            margin-bottom:5px;
+        }
+
+            .cssbuttons-io-button svg {
+                margin-right: 6px;
+            }
+
+            .cssbuttons-io-button:hover {
+                box-shadow: 0 0.5em 1.5em -0.5em #14a73e98;
+            }
+
+            .cssbuttons-io-button:active {
+                box-shadow: 0 0.3em 1em -0.5em #14a73e98;
+            }
+    </style>
+}
+<section id="interface">
+    <div class="navigation">
+        <div class="n1">
+            <div class="search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Tìm kiếm" name="" id="search">
+            </div>
+        </div>
+        <div class="profile">
+            <i class="fa fa-bell"></i>
+            <li>
+                @if (Context.Session.GetString("UrlIamge") == null || Context.Session.GetString("UrlIamge").Equals(""))
+                {
+                    <a href=""><img src="https://res.cloudinary.com/dgtjdhrnq/image/upload/v1678894055/download_g8pszb.png" alt=""></a>
+                }
+                else
+                {
+                    <a href=""><img src="@Context.Session.GetString("UrlIamge")" alt=""></a>
+                }
+                <ul class="profile_ul">
+                    <li><a href="">Hồ sơ</a></li>
+                    <li><a href="">Đổi mật khẩu</a></li>
+                    <li><a href="">Đăng xuất</a></li>
+                </ul>
+            </li>
+        </div>
+    </div>
+    @Html.Raw(TempData["Message"])
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-4">
+                    <h2 class="heading-section">Danh Sách Sản Phẩm</h2>
+                </div>
+            </div>
+            <a asp-action="AddProduct" asp-asp-controller="Admin">
+                <button class="cssbuttons-io-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"></path></svg>
+                    <span>Add</span>
+                </button>
+            </a>
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- <h3 class="h5 mb-4 text-center">Table Accordion</h3> -->
+                    <div class="table-wrap">
+                        <table class="table">
+                            <thead class="thead-primary">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Hình</th>
+                                    <th>Tên</th>
+                                    <th>Giá</th>
+                                    <th>Giảm</th>
+                                    <th>Active</th>
+                                    <th>Status</th>
+                                    <th>Ẩn,Hiện</th>
+                                    <th>Sửa,Xóa</th>
+                                </tr>
+                            </thead>
+                            <tbody class="toby">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    var inputElement = document.getElementById("search");
+    inputElement.addEventListener("keyup", function () {
+        var inputValue = inputElement.value;
+        $.ajax({
+            url: "/Admin/Admin/SearchProduct",
+            type: "GET",
+            dataType: 'json',
+            data: { text: inputValue },
+            success: function (result) {
+                var html = '';
+                $.each(result, function (i, item) {
+                    html += '<tr>';
+                    html += '<td style="text-align:center"><span>' + item.productId + '</span></td>';
+                    html += '<td><img class="img" src="' + item.anh + '"></td>';
+                    html += '<td><div class="email"><span>' + item.tenSanPham + '</span></td>';
+                    html += '<td><span>' + item.gia.toLocaleString('en-US') + '</span></td>';
+                    html += '<td><span>' + item.giamGia + '%</span></td>';
+
+                    if (item.hoatDong == 1) {
+                        html += '<td class="quantity"><i style="color: #00FF00;" class="fa-solid fa-check"></i></td>';
+                    }
+                    else {
+                        html += '<td class="quantity"><i style="color: #FF4500;" class="fa-solid fa-xmark"></i></td>';
+                    }
+                    html += '<td><span style="color: #FF4500;" >' + item.trangThai + '</span></td>';
+                    if (item.hoatDong == 1) {
+                        html += '<td><div class="toggler"><input checked id="toggler-1" name="toggler-1" type="checkbox" value="1">';
+                    }
+                    else {
+                        html += '<td><div class="toggler"><input id="toggler-1" name="toggler-1" type="checkbox" value="1">';
+                    }
+                    html += '<label for="toggler-1"><a onclick="EditHoatDongProduct(' + item.productId + ')"><svg class="toggler-on" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2"><polyline class="path check" points="100.2,40.2 51.5,88.8 29.8,67.5"></polyline></svg></a>';
+                    html += '<a onclick="EditHoatDongProduct(' + item.productId + ')"><svg class="toggler-off" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2"><line class="path line" x1="34.4" y1="34.4" x2="95.8" y2="95.8"></line><line class="path line" x1="95.8" y1="34.4" x2="34.4" y2="95.8"></line></svg></a></label>';
+                    html += '</div></td>';
+                    html += '<td><span><a href="EditProduct/' + item.productId + '"><i style="color: #1E90FF;font-size: 18px;" class="fa-solid fa-pen-to-square"></i></a></span>';
+                    html += '<span><a onclick="DeleteProduct(' + item.productId + ')""><i style="color: red;font-size: 16px;padding-left: 5px;" class="fa-sharp fa-solid fa-trash"></i></a></span></td>';
+                    html += '</tr>';
+                });
+                $('.toby').html(html);
+                window.onload = alert('Xóa thành công sản phẩm có ID là ' + id);
+            },
+            error: function () {
+                alert("Lỗi");
+            }
+        });
+    });
+</script>
+<script>
+    function DeleteProduct(id) {
+       if(confirm("Bạn có chắc chắn xóa sản phẩm ID là "+id+" không?"))
+       {
+            $.ajax({
+                url: "/Admin/Admin/DeleteProduct",
+                type: "GET",
+                dataType: 'json',
+                data: { id: id },
+                success: function (result) {
+                    var html = '';
+                    $.each(result, function (i, item) {
+                        html += '<tr>';
+                        html += '<td style="text-align:center"><span>' + item.productId + '</span></td>';
+                        html += '<td><img class="img" src="' + item.anh + '"></td>';
+                        html += '<td><div class="email"><span>' + item.tenSanPham + '</span></td>';
+                        html += '<td><span>' + item.gia.toLocaleString('en-US') + '</span></td>';
+                        html += '<td><span>' + item.giamGia + '%</span></td>';
+
+                        if (item.hoatDong == 1) {
+                            html += '<td class="quantity"><i style="color: #00FF00;" class="fa-solid fa-check"></i></td>';
+                        }
+                        else {
+                            html += '<td class="quantity"><i style="color: #FF4500;" class="fa-solid fa-xmark"></i></td>';
+                        }
+                        html += '<td><span style="color: #FF4500;" >' + item.trangThai + '</span></td>';
+                        if (item.hoatDong == 1) {
+                            html += '<td><div class="toggler"><input checked id="toggler-1" name="toggler-1" type="checkbox" value="1">';
+                        }
+                        else {
+                            html += '<td><div class="toggler"><input id="toggler-1" name="toggler-1" type="checkbox" value="1">';
+                        }
+                        html += '<label for="toggler-1"><a onclick="EditHoatDongProduct(' + item.productId + ')"><svg class="toggler-on" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2"><polyline class="path check" points="100.2,40.2 51.5,88.8 29.8,67.5"></polyline></svg></a>';
+                        html += '<a onclick="EditHoatDongProduct(' + item.productId + ')"><svg class="toggler-off" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2"><line class="path line" x1="34.4" y1="34.4" x2="95.8" y2="95.8"></line><line class="path line" x1="95.8" y1="34.4" x2="34.4" y2="95.8"></line></svg></a></label>';
+                        html += '</div></td>';
+                        html += '<td><span><a href="EditProduct/' + item.productId + '"><i style="color: #1E90FF;font-size: 18px;" class="fa-solid fa-pen-to-square"></i></a></span>';
+                        html += '<span><a onclick="DeleteProduct(' + item.productId + ')""><i style="color: red;font-size: 16px;padding-left: 5px;" class="fa-sharp fa-solid fa-trash"></i></a></span></td>';
+                        html += '</tr>';
+                    });
+                    $('.toby').html(html);
+                    window.onload=alert('Xóa thành công sản phẩm có ID là '+id);
+                },
+                error: function () {
+                    alert("Lỗi");
+                }
+            });
+       }
+    }
+</script>
+<script>
+    function EditHoatDongProduct(id) {
+        $.ajax({
+            url: "/Admin/Admin/EditHoatDongProDuct",
+            type: "GET",
+            dataType: 'json',
+            data: { id: id },
+            success: function (result) {
+                    var html = '';
+                    $.each(result, function (i, item) {
+                        html += '<tr>';
+                        html += '<td style="text-align:center"><span>' + item.productId + '</span></td>';
+                        html += '<td><img class="img" src="'+item.anh+'"></td>';
+                        html += '<td><div class="email"><span>'+item.tenSanPham+'</span></td>';
+                        html += '<td><span>' + item.gia.toLocaleString('en-US')+'</span></td>';
+                    html += '<td><span>' + item.giamGia + '%</span></td>';
+                        if(item.hoatDong==1)
+                        {
+                            html += '<td class="quantity"><i style="color: #00FF00;" class="fa-solid fa-check"></i></td>';
+                        }
+                        else
+                        {
+                            html += '<td class="quantity"><i style="color: #FF4500;" class="fa-solid fa-xmark"></i></td>';
+                        }
+                        html += '<td><span style="color: #FF4500;" >' +item.trangThai+'</span></td>';
+                        if(item.hoatDong==1)
+                        {
+                            html += '<td><div class="toggler"><input checked id="toggler-1" name="toggler-1" type="checkbox" value="1">';
+                        }
+                        else{
+                            html += '<td><div class="toggler"><input id="toggler-1" name="toggler-1" type="checkbox" value="1">';
+                        }
+                        html += '<label for="toggler-1"><a onclick="EditHoatDongProduct(' + item.productId + ')"><svg class="toggler-on" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2"><polyline class="path check" points="100.2,40.2 51.5,88.8 29.8,67.5"></polyline></svg></a>';
+                        html += '<a onclick="EditHoatDongProduct('+item.productId+')"><svg class="toggler-off" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2"><line class="path line" x1="34.4" y1="34.4" x2="95.8" y2="95.8"></line><line class="path line" x1="95.8" y1="34.4" x2="34.4" y2="95.8"></line></svg></a></label>';
+                        html+='</div></td>';
+                        html+='<td><span><a href="EditProduct/'+item.productId+'"><i style="color: #1E90FF;font-size: 18px;" class="fa-solid fa-pen-to-square"></i></a></span>';
+                    html += '<span><a  onclick="DeleteProduct(' + item.productId + ')"><i style="color: red;font-size: 16px;padding-left: 5px;" class="fa-sharp fa-solid fa-trash"></i></a></span></td>';
+                        html += '</tr>';
+                    });
+                    $('.toby').html(html);
+                },
+                error: function () {
+                    alert("Lỗi");
+                }
+        });
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        Loadata()
+    });
+    function Loadata() {
+        $.ajax(
+            {
+                url: '/Admin/Admin/GetList',
+                type: 'Get',
+                contentType: 'application/json;charset=utf-8',
+                dataType: 'json',
+                success: function (result) {
+                    var html = '';
+                    $.each(result, function (i, item) {
+                        html += '<tr>';
+                        html += '<td style="text-align:center"><span>' + item.productId + '</span></td>';
+                        html += '<td><img class="img" src="'+item.anh+'"></td>';
+                        html += '<td><div class="email"><span>'+item.tenSanPham+'</span></td>';
+                        html += '<td><span>' + item.gia.toLocaleString('en-US')+'</span></td>';
+                        html += '<td><span>' + item.giamGia + '%</span></td>';
+
+                        if(item.hoatDong==1)
+                        {
+                            html += '<td class="quantity"><i style="color: #00FF00;" class="fa-solid fa-check"></i></td>';
+                        }
+                        else
+                        {
+                            html += '<td class="quantity"><i style="color: #FF4500;" class="fa-solid fa-xmark"></i></td>';
+                        }
+                        html += '<td><span style="color: #FF4500;" >' +item.trangThai+'</span></td>';
+                        if(item.hoatDong==1)
+                        {
+                            html += '<td><div class="toggler"><input checked id="toggler-1" name="toggler-1" type="checkbox" value="1">';
+                        }
+                        else{
+                            html += '<td><div class="toggler"><input id="toggler-1" name="toggler-1" type="checkbox" value="1">';
+                        }
+                        html += '<label for="toggler-1"><a onclick="EditHoatDongProduct(' + item.productId + ')"><svg class="toggler-on" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2"><polyline class="path check" points="100.2,40.2 51.5,88.8 29.8,67.5"></polyline></svg></a>';
+                        html += '<a onclick="EditHoatDongProduct('+item.productId+')"><svg class="toggler-off" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2"><line class="path line" x1="34.4" y1="34.4" x2="95.8" y2="95.8"></line><line class="path line" x1="95.8" y1="34.4" x2="34.4" y2="95.8"></line></svg></a></label>';
+                        html+='</div></td>';
+                        html+='<td><span><a href="EditProduct/'+item.productId+'"><i style="color: #1E90FF;font-size: 18px;" class="fa-solid fa-pen-to-square"></i></a></span>';
+                        html += '<span><a onclick="DeleteProduct(' + item.productId + ')"><i style="color: red;font-size: 16px;padding-left: 5px;" class="fa-sharp fa-solid fa-trash"></i></a></span></td>';
+                        html += '</tr>';
+                    });
+                    $('.toby').html(html);
+                },
+                error: function () {
+                    alert("Lỗi");
+                }
+            }
+        );
+
+    }
+</script>
+@*@foreach (var item in Model)
+{
+    <tr class="alert" role="alert">
+        <td style="text-align:center">
+            
+            <span>@item.ProductId</span>
+        </td>
+        <td>
+            <img class="img" src="@item.Anh">
+        </td>
+        <td>
+            <div class="email">
+                <span>@item.TenSanPham</span>
+            </div>
+        </td>
+        <td>
+            <span>@item.Gia.ToString("#,#")</span>
+        </td>
+        <td class="quantity">
+            
+            @if (item.HoatDong == 1)
+            {
+                <i style="color: #00FF00;" class="fa-solid fa-check"></i>
+            }
+            else
+            {
+                <i style="color: #FF4500;" class="fa-solid fa-xmark"></i>
+            }
+        </td>
+        <td><span style="color: #FF4500;">@item.TrangThai</span></td>
+        <td>
+            <div class="toggler">
+                @if (item.HoatDong == 1)
+                {
+
+                    <input checked id="toggler-1" name="toggler-1" type="checkbox" value="1">
+                    <label for="toggler-1">
+                        <a asp-action="EditHoatDongProDuct" asp-controller="Admin" asp-route-id="@item.ProductId">
+                            <svg class="toggler-on" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+                                <polyline class="path check" points="100.2,40.2 51.5,88.8 29.8,67.5"></polyline>
+                            </svg>
+                        </a>
+                        <a asp-action="EditHoatDongProDuct" asp-controller="Admin" asp-route-id="@item.ProductId">
+                            <svg class="toggler-off" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+                                <line class="path line" x1="34.4" y1="34.4" x2="95.8" y2="95.8"></line>
+                                <line class="path line" x1="95.8" y1="34.4" x2="34.4" y2="95.8"></line>
+                            </svg>
+                        </a>
+                    </label>
+                }
+                else
+                {
+                    <input id="toggler-1" name="toggler-1" type="checkbox" value="1">
+                    <label for="toggler-1">
+                        <a asp-action="EditHoatDongProDuct" asp-controller="Admin" asp-route-id="@item.ProductId">
+                            <svg class="toggler-on" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+                                <polyline class="path check" points="100.2,40.2 51.5,88.8 29.8,67.5"></polyline>
+                            </svg>
+                        </a>
+                        <a asp-action="EditHoatDongProDuct" asp-controller="Admin" asp-route-id="@item.ProductId">
+                            <svg class="toggler-off" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+                                <line class="path line" x1="34.4" y1="34.4" x2="95.8" y2="95.8"></line>
+                                <line class="path line" x1="95.8" y1="34.4" x2="34.4" y2="95.8"></line>
+                            </svg>
+                        </a>
+                    </label>
+                }
+
+            </div>
+        </td>
+        <td>
+            
+            <span><a asp-action="EditProduct" asp-controller="Admin" asp-route-id="@item.ProductId"><i style="color: #1E90FF;font-size: 18px;" class="fa-solid fa-pen-to-square"></i></a></span>
+            <span><a onclick="return confirm('Bạn có chắc chắn xóa sản phẩm không?')" asp-action="DeleteProduct" asp-controller="Admin" asp-route-id="@item.ProductId"><i style="color: red;font-size: 16px;padding-left: 5px;" ; class="fa-sharp fa-solid fa-trash"></i></a></span>
+        </td>
+    </tr>
+}*@

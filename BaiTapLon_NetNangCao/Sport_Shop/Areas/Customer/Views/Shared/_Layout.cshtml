@@ -1,0 +1,257 @@
+﻿@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.0/css/all.css" integrity="" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="~/assets/css/base.css">
+    <link rel="stylesheet" href="~/assets/css/main.css">
+    <link rel="stylesheet" href="~/assets/css/trangchu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="gird">
+                <nav class="header__navbar">
+                    <ul class="header__navbar--list">
+                        <li class="header__navbar-item header__navbar-item--has-qr header__navbar-item--separate">
+                            Vào cửa hàng trên ứng dụng NUMBER ONE
+                            <div class="header__qr">
+                                <img src="assets/img/d91264e165ed6facc6178994d5afae79.png" alt="" class="header__qr-img">
+                                <div class="header__qr-apps">
+                                    <a href="" class="header__qr-link">
+                                        <img src="assets/img/sto.png" alt="" class="header__qr-download-img">
+                                    </a>
+                                    <a href="" class="header__qr-link">
+                                        <img src="assets/img/gg.png" alt="" class="header__qr-download-img">
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="header__navbar-item">
+                            Kết nối
+                            <a href="" class="header__navbar-icon-link">
+                                <i class="header__navbar-icon fab fa-facebook"></i>
+                                <i class="header__navbar-icon fab fa-instagram"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="header__navbar--list">
+                        <li class="header__navbar-item">
+                            <a href="" class="header__navbar-item-link">
+                                <i class="header__navbar-icon fas fa-bell"></i>
+                                Thông báo
+                            </a>
+                        </li>
+                        <li class="header__navbar-item">
+                            <a href="" class="header__navbar-item-link">
+                                <i class="header__navbar-icon far fa-question-circle"></i>
+                                Trợ giúp
+                            </a>
+
+                        </li>
+                        <!-- <li class="header__navbar-item header__navbar-item-strong header__navbar-item--separate">Đăng kí</li>
+                        <li class="header__navbar-item header__navbar-item-strong ">Đăng nhập</li> -->
+                        @if (Context.Session.GetString("Username") == null || Context.Session.GetString("Username") == "")
+                        {
+                            <li class="header__navbar-item">
+                                <a class="header__navbar-item-link showformregister">
+                                    Đăng ký <span style="padding-left: 12px;color: #ccc;">|</span>
+                                </a>
+                            </li>
+                            <li class="header__navbar-item">
+                                <a class="header__navbar-item-link showformlogin">
+                                    Đăng nhập
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="header__navbar-item header__navbar-user">
+                                @if (Context.Session.GetString("imageUrl") != "")
+                                {
+                                    <img src="@Context.Session.GetString("imageUrl")" alt="" class="header__navbar-img">
+                                }
+                                else
+                                {
+                                    <img src="https://res.cloudinary.com/dbnr304ms/image/upload/v1681582357/download_jxyp8d.jpg" alt="" class="header__navbar-img">
+                                }
+
+
+                                <span class="header__navbar-user-name">@Context.Session.GetString("Username")</span>
+                                <ul class="header__navbar-user-menu">
+                                    <li class="header__navbar-user-item">
+                                        <a asp-action="EditProfile" asp-controller="Web_Store">Tài khoản của tôi</a>
+                                    </li>
+                                    
+                                    <li class="header__navbar-user-item">
+                                        <a asp-action="ViewOrder" asp-controller="Web_Store">Đơn mua</a>
+                                    </li>
+                                    <li class="header__navbar-user-item">
+                                        <a asp-action="LogOut" asp-controller="Web_Store">Đăng xuất</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                    </ul>
+                </nav>
+
+                <div class="header-width-search">
+                    <div class="header__logo" style="display: flex;align-items: center;">
+                        <div class="header__logo_item">
+                            <img class="header_logo-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxDX3YyZnp8ax4tYjIxh0fywyu79gyHuO1Jg&usqp=CAU">
+                        </div>
+                        <a style="text-decoration:none" asp-action="Index" asp-controller="Web_Store">
+                            <div class="header__logo_item">
+                            <span>LeO Store</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="header_search">
+                        <div class="header_search-input-wrap">
+                            <form style="width:100%" asp-action="SearchProduct" asp-controller="Web_Store" method="get">
+                                <input type="text" name="searchproduct" placeholder="Tìm kiếm" class="header_search-input" autocomplete="off">
+                            </form>
+                            <div class="header_search-input-history">
+                                <h3 class="header_search-input-history-heading">Lịch sử tìm kiếm</h3>
+                                <ul class="header_search-input-history-list">
+                                    <li class="header_search-input-history-item">
+                                        <a href="#">Áo sơ mi</a>
+                                    </li>
+                                    <li class="header_search-input-history-item">
+                                        <a href="">Trịnh Công Triệu</a>
+                                    </li>
+                                    <li class="header_search-input-history-item">
+                                        <a href="">Áo phông form rộng</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="header_search-select ">
+                            <span class="header_search-select-label">Trong Shop</span>
+                            <i class="header_search-select-label-icon fas fa-angle-down"></i>
+                            <ul class="header_search-select-option">
+                                <li class="header_search-select-item">
+                                    <span>Trong Shop</span>
+                                    <i class="fas fa-check"></i>
+                                </li>
+                                <li class="header_search-select-item">
+                                    <span>Ngoài Shop</span>
+                                    <i class="fas fa-check"></i>
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="header_search-btn">
+                            <i class="fas fa-search header_search-btn-icon"></i>
+                        </button>
+                    </div>
+
+                    @if (Context.Session.GetString("Username") != null)
+                    {
+                        <div class="header_cart">
+                            <a asp-action="ViewCart" asp-controller="Web_Store">
+                                <div class="header_cart-wrap">
+                                <i class="fa fa-shopping-cart header-cart-icon"></i>
+                                    <!-- có sản phẩm header_cart--no-cart -->
+                                </div>
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </header>
+
+
+
+        @RenderBody()
+
+        <footer class="footer">
+            <div class="gird">
+                <div class="gird__row">
+                    <div class="gird__column-2-4">
+                        <h3 class="footer_heading">
+                            Chăm sóc khách hàng
+                        </h3>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="" class="fooetr-item_link">Trung tâm trợ giúp</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="fooetr-item_link">F8-Shop</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="fooetr-item_link">Liên hệ</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="gird__column-2-4">
+                        <h3 class="footer_heading">
+                            Giới thiệu
+                        </h3>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="" class="fooetr-item_link">Trung tâm trợ giúp</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="fooetr-item_link">F8-Shop</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="fooetr-item_link">Liên hệ</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="gird__column-2-4">
+                        <h3 class="footer_heading">
+                            Theo dõi
+                        </h3>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="" class="fooetr-item_link">Trung tâm trợ giúp</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="fooetr-item_link">F8-Shop</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="fooetr-item_link">Liên hệ</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="gird__column-2-4">
+                        <h3 class="footer_heading">
+                            Vào cửa hàng trên ứng dụng
+                        </h3>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="" class="fooetr-item_link">Trung tâm trợ giúp</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="fooetr-item_link">F8-Shop</a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="" class="fooetr-item_link">Liên hệ</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="gird__column-2-4">
+                        <h3 class="footer_heading">
+                            Chăm sóc khách hàng
+                        </h3>
+                        <div class="footer_download">
+                            <img src="assets/img/d91264e165ed6facc6178994d5afae79.png" alt="" class="footer_download-qr">
+                            <div class="footer_download-apps">
+                                <img class="footer_download-app-img" src="assets/img/sto.png" alt="">
+                                <img src="assets/img/gg.png" alt="" class="footer_download-app-img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

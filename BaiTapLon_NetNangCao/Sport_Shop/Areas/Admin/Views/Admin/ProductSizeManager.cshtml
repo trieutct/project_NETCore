@@ -1,0 +1,198 @@
+﻿@model Sport_Shop.Areas.Admin.Models.ProductSize
+@{
+    ViewData["Title"] = "ProductSizeManager";
+    Layout = "~/Areas/Admin/Views/Shared/Admin/Layout.cshtml";
+    <link rel="stylesheet" href="~/css/Admin/profile.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <style>
+        #form-create {
+            position: relative;
+            width: 90%;
+            background-color: #fff;
+            box-shadow: 0px 10px 10px #ccc;
+            margin-left: 5%;
+        }
+
+            #form-create form {
+                padding: 15px;
+            }
+    </style>
+}
+
+
+<section id="interface">
+    <div class="navigation">
+        <div class="n1">
+            <div class="search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Tìm kiếm" name="" id="">
+            </div>
+        </div>
+        <div class="profile">
+            <i class="fa fa-bell"></i>
+            <li>
+                @if (Context.Session.GetString("UrlIamge") == null || Context.Session.GetString("UrlIamge").Equals(""))
+                {
+                    <a href=""><img src="https://res.cloudinary.com/dgtjdhrnq/image/upload/v1678894055/download_g8pszb.png" alt=""></a>
+                }
+                else
+                {
+                    <a href=""><img src="@Context.Session.GetString("UrlIamge")" alt=""></a>
+                }
+                <ul class="profile_ul">
+                    <li><a asp-action="Profile" asp-controller="Admin">Hồ sơ</a></li>
+                    <li><a asp-action="DoiMatKhau" asp-controller="Admin">Đổi mật khẩu</a></li>
+                    <li><a asp-action="Index" asp-controller="Login">Đăng xuất</a></li>
+                </ul>
+            </li>
+        </div>
+    </div>
+    @Html.Raw(TempData["Message"])
+    <div style="margin-top:3%">
+        <a href="" onclick="LoadForm()" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-left:5%"><i class="fa-thin fa-plus"></i> Thêm</a>
+    </div>
+    <div id="form-create">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Sản Phẩm</th>
+                    <th>Size</th>
+                    <th>Số Lượng Tồn</th>
+                    <th colspan="2">Action</th>
+                </tr>
+            </thead>
+            <tbody class="tbody">
+                
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <form id="myform" method="post">
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="sel1" class="form-label">Tên Sản Phẩm</label>
+                    <input type="text" class="form-control" readonly name="TenSanPham"/>
+                    <select class="form-select" id="sel1" asp-for="ProductId" asp-items="ViewBag.ProductId">
+                       
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="sel1" class="form-label">Tên Size</label>
+                        <input type="text" class="form-control" readonly name="TenSize" />
+
+                    <select class="form-select" id="sel1" asp-for="SizeId" asp-items="ViewBag.SizeId">
+                       
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="sel1" class="form-label">Số lượng</label>
+                    <input type="number" readonly value="0" name="SoLuongTon" asp-for="SoLuongTon" class="form-control" />
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                    <input class="btn btn-success" id="submit" value="" type="submit">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        LoadProDuctSize();
+        LoadForm();
+    });
+
+    function LoadProDuctSize()
+    {
+        $.ajax(
+            {
+                url: '/Admin/Admin/LoadProDuctSize',
+                type: 'Get',
+                contentType: 'application/json;charset=utf-8',
+                dataType: 'json',
+                success: function (result) {
+                    var html = '';
+                    $.each(result, function (i, item) {
+                        html += '<tr>';
+                        html += '<td>'+item.id+'</td>';
+                        html += '<td>'+item.tenSanPham+'</td>';
+                        html += '<td>'+item.size+'</td>';
+                        html += '<td>'+item.soLuongTon+'</td>';
+                        html += '<td><a href="" data-bs-toggle="modal" data-bs-target="#myModal" onclick=EditProuctSize(' + item.id + ')><i class="fa-solid fa-pen-to-square" ></i></a><a href="/Admin/Admin/DeleteProductSize/'+item.id+'" style="padding-left:5px;color:red"><i class="fa-sharp fa-solid fa-trash"></i></a></td>';
+                        html += '</tr>';
+                    });
+                    $('.tbody').html(html);
+                },
+                error: function () {
+                    alert("Lỗi")
+                }
+            }
+        );
+    }
+    function LoadForm() {
+        document.querySelector("input[name='TenSanPham']").style.display = "none";
+        document.querySelector("input[name='TenSize']").style.display = "none";
+        document.getElementById("submit").value = "Thêm";
+        document.getElementById("myform").action = "/Admin/Admin/AddProductSize";
+        document.getElementsByName("SoLuongTon")[0].readOnly = true;
+        var selects = document.querySelectorAll("select");
+        for (var i = 0; i < selects.length; i++) {
+            selects[i].style.display = "block";
+        }
+    }
+    function EditProuctSize(id)
+    {
+        $.ajax(
+            {
+                url: '/Admin/Admin/EditProuctSize',
+                type: 'Get',
+                contentType: 'application/json;charset=utf-8',
+                dataType: 'json',
+                data: { id: id },
+                success: function (result) {
+                    $.each(result, function (i, item) {
+                        document.querySelector("input[name='TenSanPham']").style.display = "block";
+                        document.querySelector("input[name='TenSize']").style.display = "block";
+                        document.getElementsByName("TenSanPham")[0].value = item.tenSanPham;
+                        document.getElementsByName("TenSize")[0].value = item.tenSize;
+                        document.getElementsByName("SoLuongTon")[0].readOnly = false;
+                        document.getElementsByName("SoLuongTon")[0].value="";
+                        document.getElementById("submit").value="Cập nhật";
+                        document.getElementById("myform").action = "/Admin/Admin/UpdateProductSize/"+item.id;
+                        var selects = document.querySelectorAll("select");
+                        for (var i = 0; i < selects.length; i++) {
+                            selects[i].style.display = "none";
+                        }
+                    });
+                },
+                error: function () {
+                    alert("Lỗi")
+                }
+            }
+        );
+    }
+
+ </script>
+

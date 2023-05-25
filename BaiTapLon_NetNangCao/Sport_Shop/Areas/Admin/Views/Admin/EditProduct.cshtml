@@ -1,0 +1,124 @@
+﻿@model Sport_Shop.Areas.Admin.Models.Product
+@{
+    ViewData["Title"] = "EditProduct";
+    Layout = "~/Areas/Admin/Views/Shared/Admin/Layout.cshtml";
+    <link rel="stylesheet" href="~/css/Admin/profile.css">
+    <style>
+        #form-create {
+            position: relative;
+            width: 60%;
+            background-color: #fff;
+            box-shadow: 0px 10px 10px #ccc;
+            margin-left: 20%;
+            margin-bottom: 5%;
+        }
+
+            #form-create form {
+                padding: 15px;
+            }
+
+        #imagePreview {
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #dfdfdf;
+        }
+    </style>
+}
+<section id="interface">
+    <div class="navigation">
+        <div class="n1">
+            <div class="search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Tìm kiếm" name="" id="">
+            </div>
+        </div>
+        <div class="profile">
+            <i class="fa fa-bell"></i>
+            <li>
+                @if (Context.Session.GetString("UrlIamge") == null || Context.Session.GetString("UrlIamge").Equals(""))
+                {
+                    <a href=""><img src="https://res.cloudinary.com/dgtjdhrnq/image/upload/v1678894055/download_g8pszb.png" alt=""></a>
+                }
+                else
+                {
+                    <a href=""><img src="@Context.Session.GetString("UrlIamge")" alt=""></a>
+                }
+                <ul class="profile_ul">
+                    <li><a asp-action="Profile" asp-controller="Admin">Hồ sơ</a></li>
+                    <li><a asp-action="DoiMatKhau" asp-controller="Admin">Đổi mật khẩu</a></li>
+                    <li><a asp-action="Index" asp-controller="Login">Đăng xuất</a></li>
+                </ul>
+            </li>
+        </div>
+    </div>
+    @Html.Raw(TempData["Message"])
+    <h3 style="text-align:center;margin-top:20px">Thêm Sản Phẩm</h3>
+    <div id="form-create">
+        <form method="post" enctype="multipart/form-data" asp-action="EditProduct" asp-controller="Admin">
+            <div class="form-group">
+                <input type="hidden" asp-for="ProductId" />
+                <label for="exampleInputEmail1">Tên sản phẩm</label>
+                <input type="text" class="form-control" asp-for="TenSanPham" placeholder="Tên sản phẩm">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Mô tả</label>
+                <input type="text" class="form-control" asp-for="MoTa" placeholder="Mô tả">
+            </div>
+            <div class="form-group">
+                <img id="imagePreview" src="" style="display:none">
+                <label for="exampleInputEmail1">Ảnh</label>
+                <input type="hidden" asp-for="Anh" />
+                <input type="file" id="inputFile" name="file" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Giá</label>
+                <input type="number" class="form-control" asp-for="Gia" placeholder="Nhập giá bán">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Giảm giá (%)</label>
+                <input type="number" class="form-control" asp-for="GiamGia" placeholder="Nhập giảm giá">
+            </div>
+            <span>Hoạt Động</span><br />
+            <select class="form-select form-select-sm" asp-for="HoatDong" aria-label=".form-select-sm example">
+                <option value="1">Có</option>
+                <option value="0">Không</option>
+            </select><br /><br />
+            <span>Trạng Thái</span><br />
+            <select class="form-select form-select-sm" asp-for="TrangThai" aria-label=".form-select-sm example">
+                <option value="New">New</option>
+                <option value="Hot">Hot</option>
+                <option value="Thường">Thường</option>
+            </select><br /><br />
+            <span>Loại Sản Phẩm</span><br />
+            <select class="form-select form-select-sm" asp-for="CategoryId" asp-items="ViewBag.CategoryId" aria-label=".form-select-sm example">
+            </select><br /><br />
+            <button type="submit" class="btn btn-primary">Cập nhật</button>
+        </form>
+    </div>
+</section>
+
+
+
+<script>
+    const inputFile = document.getElementById('inputFile');
+    const imagePreview = document.getElementById('imagePreview');
+
+    inputFile.addEventListener('change', function () {
+        const file = this.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+
+            reader.addEventListener('load', function () {
+                imagePreview.src = reader.result;
+                imagePreview.style.display = 'block';
+            });
+
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
+
+

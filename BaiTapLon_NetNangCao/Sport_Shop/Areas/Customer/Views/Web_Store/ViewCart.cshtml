@@ -1,0 +1,230 @@
+﻿@model List<Sport_Shop.Areas.Customer.Models.Cart>
+@{
+    ViewData["Title"] = "ViewCart";
+    Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .quantity {
+            display: flex;
+            justify-content: space-around;
+            width: 100%%;
+            border: 1px solid rgba(0,0,0,.09);
+        }
+
+            .quantity a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 30%;
+                border: none;
+                background: #F5F5F5;
+            }
+
+                .quantity a:first-child {
+                    font-size: 18px;
+                    border-top-right-radius: 0;
+                    border-bottom-right-radius: 0;
+                    border-right: 1px solid rgba(0,0,0,.09);
+                }
+
+                .quantity a:last-child {
+                    font-size: 18px;
+                    border-top-right-radius: 0;
+                    border-bottom-right-radius: 0;
+                    border-left: 1px solid rgba(0,0,0,.09);
+                }
+
+        #toast-container {
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 40%;
+        }
+
+        .toast {
+            display: inline-block;
+            padding: 10px;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 14px;
+            line-height: 1.4;
+            margin: 10px;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+            .toast.toast-error {
+                background-color: #e74c3c;
+            }
+
+            .toast.show {
+                opacity: 1;
+                transform: translateY(0);
+            }
+    </style>
+}
+<div style="padding-bottom:100px" class="app_container">
+    <div class="row">
+        <div class="container">
+            <h3 style="margin-top: 20px;color: #E45641;font-size: 26px;" class="text-center">Giỏ hàng</h3>
+            <hr>
+            <br>
+            <table style="font-size: 16px;" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Sản Phẩm</th>
+                        <th>Ảnh</th>
+                        <th>Giá</th>
+                        <th>Size</th>
+                        <th>Số lượng</th>
+                        <th>Thành tiền</th>
+                        <th colspan="2">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="tbody">
+                    @{
+                        int stt = 0;
+                        int TongTien = 0;
+                    }
+                    @foreach (var item in Model)
+                    {
+                        stt++;
+                        TongTien += item.Gia * item.SoLuong;
+                        <tr>
+                            <td>@stt</td>
+                            <td>@item.TenSanPham</td>
+                            <td><img height="60" width="100" src="@item.Image" alt=""></td>
+                            <td><span>@item.Gia</span></td>
+                            <td>@item.TenSize</td>
+                            <td>
+                                <div class="quantity">
+                                    <a asp-action="GiamSoLuong" asp-controller="Web_Store" asp-route-id="@item.CartID" class="minus">-</a>
+                                    <span>@item.SoLuong</span>
+                                    <a asp-action="TangSoLuong" asp-controller="Web_Store" asp-route-id="@item.CartID" class="plus">+</a>
+                                </div>
+                            </td>
+                            <td><span class="money">@(item.Gia * item.SoLuong)</span></td>
+                            <td><a asp-action="DeleteCartById" asp-controller="Web_Store" asp-route-id="@item.CartID">Xóa</a></td>
+                        </tr>
+                    }
+                    @if (TongTien != 0)
+                    {
+                        <tr>
+                            <td style="text-align: right;" colspan="6"><strong>Tổng tiền:</strong></td>
+                            <td><span class="money" style="font-weight: 600;">@TongTien</span></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td colspan="7"></td>
+                            <td><a style="font-size: 16px;color: #fff; background: #E45641; border: none;" class="btn btn-success DatHang">Mua hàng</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal .js-modal">
+    <div class="modal__overlay">
+    </div>
+    <div class="modal__body">
+        <div class="modal__inner">
+            <!-- dang ky form -->
+            <div style="padding:20px" class="auth-form form_register">
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Thông tin nhận hàng</h3>
+                        <span class="auth-form__switch-btn"></span>
+                    </div>
+                    <form id="form_Order" method="post">
+                        <div class="auth-form_form">
+                            <div class="auth-form_group">
+                                <input type="text" id="NguoiNhan" name="NguoiNhan" class="auth-form_input" placeholder="Người nhận">
+                            </div>
+                            <div class="auth-form_group">
+                                <input type="text" id="Phone" name="Phone" class="auth-form_input" placeholder="Số điện thoại">
+                            </div>
+                            <div class="auth-form_group">
+                                <input type="text" id="DiaChi" name="DiaChi" class="auth-form_input" placeholder="Địa chỉ">
+                            </div>
+                        </div>
+                        <div class="auth-form_controls">
+                            <button type="submit" style="font-size:16px;color:#fff" class="btn btn--primary">
+                                Đặt hàng
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div id="toast-container">
+    <div class="toast toast-error">
+        <div class="toast-message"></div>
+    </div>
+</div>
+<script src="~/js/modal.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    const btnDatHang = document.querySelector('.DatHang');
+    btnDatHang.addEventListener('click', showformregister);
+    document.querySelector('.modal').addEventListener('click', close);
+
+    document.querySelector('.modal__body').addEventListener('click', function (event) {
+        event.stopPropagation()
+    });
+
+
+    $(document).ready(function () {
+        $("#form_Order").submit(function (event) {
+            event.preventDefault(); // Ngăn chặn form được gửi đi
+            var form = $(this);
+            var formData = new FormData(form[0]); // Lấy dữ liệu form
+            if (confirm("Bạn có chắc chắc đặt đơn hàng này không?\n--------------------Thông tin Nhận Hàng--------------------\nNgười Nhận: " + document.getElementById("NguoiNhan").value + "\nSố điện thoại: " + document.getElementById("Phone").value + "\nĐịa chỉ: " + document.getElementById("DiaChi").value)) {
+                $.ajax({
+                    type: "POST",
+                    url: "/Customer/Web_Store/Order",
+                    data: formData,
+                    processData: false, // Không xử lý dữ liệu truyền vào
+                    contentType: false, // Không thiết lập kiểu dữ liệu cho dữ liệu truyền vào
+                    success: function (result) {
+                        if (result.success) {
+                            const message = document.querySelector('.toast-message');
+                            message.innerHTML = result.message;
+                            const toast = document.querySelector('.toast');
+                            toast.classList.add('show');
+                            toast.style.background = '#4CAF50';
+                            setTimeout(() => {
+                                toast.classList.remove('show');
+                            }, 3000);
+                            setTimeout(() => {
+                                window.location.href = result.redirectToUrl;
+                            }, 2000);
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>
+<script>
+    let Gias = document.querySelectorAll(".money");
+    Gias.forEach(function (span) {
+        let numString = span.innerHTML;
+        let formattedNum = Number(numString).toLocaleString();
+        span.innerHTML = formattedNum;
+    });
+</script>
+

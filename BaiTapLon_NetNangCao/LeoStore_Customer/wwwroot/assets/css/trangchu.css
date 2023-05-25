@@ -1,0 +1,314 @@
+﻿#banner {
+    width: 100%;
+    background-image: url("https://cdn.tgdd.vn/2023/03/banner/720x220-720x220-160.png");
+    background-size: 100%;
+    height: 400px;
+    display: flex;
+    padding: 0px 133px;
+    position: relative;
+    margin-top: 80px;
+    font-size: 20px;
+}
+
+    #banner .box-left, #banner .box-right {
+        width: 50%;
+    }
+
+        #banner .box-left h2 {
+            font-size: 48px;
+            margin-top: 75px;
+            color: #fff;
+        }
+
+        #banner .box-left p {
+            color: #D0D0D0;
+        }
+
+        #banner .box-left button {
+            width: 191px;
+            height: 40px;
+            margin-top: 41px;
+            background: #1d1a1a;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 20px;
+            transition: 0.6s;
+            cursor: pointer;
+        }
+
+            #banner .box-left button:hover {
+                background: orange;
+            }
+
+        #banner .box-right img {
+            width: 100px;
+            height: 360px;
+            border-radius: 20px;
+            margin: 0px 10px;
+            animation: animation 3s infinite linear;
+        }
+
+    #banner .box-right {
+        padding-left: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+        #banner .box-right img:nth-child(1) {
+            animation-delay: .5s;
+        }
+
+        #banner .box-right img:nth-child(2) {
+            animation-delay: 1s;
+            height: 400px;
+        }
+
+        #banner .box-right img:nth-child(3) {
+            animation-delay: 1.5s;
+        }
+
+@keyframes animation {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+#banner .to-botton {
+    width: 60px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgb(39 33 33);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+    #banner .to-botton i {
+        color: #fff;
+        font-size: 30px;
+    }
+
+.fa-star {
+    color: rgb(234 230 12);
+    margin: 5px;
+}
+
+
+
+
+#wp-products {
+    background: #f5f5f5;
+    padding: 30px;
+    font-size: 16px;
+}
+
+    #wp-products h2 {
+        text-align: center;
+        margin-bottom: 76px;
+        font-size: 32px;
+        color: #626a67;
+    }
+
+#list-products {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+    #list-products .item {
+        width: 250px;
+        height: 370px;
+        background: #362f2f;
+        border-radius: 10px;
+        margin-bottom: 50px;
+        background: white;
+    }
+
+        #list-products .item a {
+            text-decoration: none;
+        }
+
+        #list-products .item img {
+            display: block;
+            width: 85%;
+            margin: 0 auto;
+            margin-top: 17px;
+            margin-bottom: 10px;
+            height: 38%;
+        }
+
+        #list-products .item .stars {
+            margin: 0 auto;
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #list-products .item .name {
+            text-align: center;
+            color: #fff;
+            font-weight: bold;
+            margin-top: 0px;
+        }
+
+        #list-products .item .desc {
+            text-align: center;
+            color: rgba(0,0,0,.87);
+            overflow: hidden;
+            width: 100%;
+            height: 19%;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+        }
+
+        #list-products .item .price {
+            text-align: center;
+            color: #f42424;
+            font-weight: bold;
+            margin-top: 35px;
+        }
+
+            #list-products .item .price span {
+                letter-spacing: 1.5px;
+            }
+
+.list-page {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .list-page a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 15px;
+        width: 37px;
+        height: 37px;
+        background: #362f2f;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+#saleoff {
+    width: 100%;
+    display: flex;
+    height: 322px;
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url("	https://cdn.tgdd.vn/2023/03/banner/1200x200-1200x200-85.png");
+}
+
+    #saleoff .box-right {
+        width: 100%;
+        background-position: center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-image: url("	https://cdn.tgdd.vn/2023/03/banner/1200x200-1200x200-85.png");
+    }
+
+
+
+#comment {
+    width: 1012px;
+    height: 478px;
+    margin: 0 auto;
+    margin-top: 50;
+    margin-bottom: 54px;
+    font-size: 16px;
+}
+
+    #comment h2 {
+        font-size: 32px;
+        color: #626a67;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+#comment-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1000px;
+    height: 400px;
+    list-style: none;
+    overflow: hidden;
+}
+
+#list-comment .item .avatar img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+#list-comment .item {
+    width: 100%;
+    height: 100%;
+    background: #362f2f;
+    border-radius: 20px;
+    padding-top: 50px;
+}
+
+    #list-comment .item .avatar {
+        text-align: center;
+        margin-top: 13px;
+        transition: 0.4s;
+    }
+
+#list-comment {
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    transition: 0.5s;
+}
+
+    #list-comment .item .stars {
+        display: flex;
+        margin: 0 auto;
+        width: 50%;
+        margin-top: 32px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #list-comment .item .name {
+        text-align: center;
+        font-weight: bold;
+        color: #fff;
+    }
+
+    #list-comment .item .text {
+        padding: 20px 50px;
+        color: #fff;
+        justify-content: center;
+    }
+
+.prev i, .next i {
+    margin: 10px;
+    font-size: 50px;
+    color: #999;
+}

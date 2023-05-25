@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewData["Title"] = "Admin";
+    Layout = "~/Areas/Admin/Views/Shared/Admin/Layout.cshtml";
+    <link rel="stylesheet" href="~/css/Admin/profile.css">
+    <link rel="stylesheet" href="~/css/Admin/thongke.css">
+}
+@Html.Raw(TempData["Message"])
+<section id="interface">
+    <div class="navigation">
+        <div class="n1">
+            <div class="search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Tìm kiếm" name="" id="">
+            </div>
+        </div>
+        <div class="profile">
+            <i class="fa fa-bell"></i>
+            <li>
+                @if (Context.Session.GetString("UrlIamge") == null || Context.Session.GetString("UrlIamge").Equals(""))
+                {
+                    <a href=""><img src="https://res.cloudinary.com/dgtjdhrnq/image/upload/v1678894055/download_g8pszb.png" alt=""></a>
+                }
+                else
+                {
+                    <a href=""><img src="@Context.Session.GetString("UrlIamge")" alt=""></a>
+                }
+                <ul class="profile_ul">
+                    <li><a asp-action="Profile" asp-controller="Admin">Hồ sơ</a></li>
+                    <li><a asp-action="DoiMatKhau" asp-controller="Admin">Đổi mật khẩu</a></li>
+                    <li><a asp-action="Index" asp-controller="Login">Đăng xuất</a></li>
+                </ul>
+            </li>
+        </div>
+    </div>
+
+    <h3 class="i-name">Thống Kê</h3>
+
+    <div class="values">
+        <div class="val-box">
+            <i class="fa fa-briefcase"></i>
+            <div>
+                <h3>@ViewBag.SumProduct</h3>
+                <span>Sản Phẩm</span>
+            </div>
+        </div>
+        <div class="val-box">
+            <i class="fa-solid fa-users"></i>
+            <div>
+                <h3>@ViewBag.SumCustomer</h3>
+                <span>Khách Hàng</span>
+            </div>
+        </div><div class="val-box">
+            <i class="fa-solid fa-users"></i>
+            <div>
+                <h3>@ViewBag.SumNhanVien</h3>
+                <span>Nhân Viên</span>
+            </div>
+        </div><div class="val-box">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <div>
+                <h3>@ViewBag.SumCart</h3>
+                <span>Đơn Đã Hoàn Thành</span>
+            </div>
+        </div>
+        <div class="val-box">
+            <i class="fa-solid fa-sack-dollar"></i>
+            <div>
+                <h3 class="number">@ViewBag.DoanhThuHomNay</h3>
+                <span>Doanh Thu Hôm Nay</span>
+            </div>
+        </div>
+        <div class="val-box">
+            <i class="fa-solid fa-sack-dollar"></i>
+            <div>
+                <h3 class="number">@ViewBag.DoanhThuTuan</h3>
+                <span>Doanh Thu Tuần</span>
+            </div>
+        </div>
+        <div class="val-box">
+            <i class="fa-solid fa-sack-dollar"></i>
+            <div>
+                <h3 class="number">@ViewBag.DoanhThuThang</h3>
+                <span>Doanh Thu Tháng</span>
+            </div>
+        </div>
+        <div class="val-box">
+            <i class="fa-solid fa-sack-dollar"></i>
+            <div>
+                <h3 class="number">@ViewBag.DoanhThuNam</h3>
+                <span>Doanh Thu Năm</span>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    let numbers = document.querySelectorAll(".number");
+    numbers.forEach(function (span) {
+        let numString = span.innerHTML;
+        let formattedNum = Number(numString).toLocaleString();
+        span.innerHTML = formattedNum;
+    });
+</script>
+

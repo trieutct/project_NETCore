@@ -1,0 +1,37 @@
+﻿@model Sport_Shop.Areas.Admin.Models.EmployeeLogin
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Đăng Nhập</title>
+    <link rel="stylesheet" href="~/css/Admin/Login.css">
+</head>
+<body>
+    @if(TempData["Message"]!=null)
+    {
+        @Html.Raw(TempData["Message"]);
+    }
+    <div class="animated bounceInDown">
+        <div class="container">
+            <span class="error animated tada" id="msg"></span>
+            <form asp-action="Login" asp-controller="Login" name="form1" class="box" method="post" >
+                <h4>Admin<span>Dashboard</span></h4>
+                <h5>Đăng nhập tài khoản của bạn</h5>
+                <input type="text" asp-for="UserName" placeholder="UserName" autocomplete="off">
+                <i class="typcn typcn-eye" id="eye"></i>
+                <input type="password" asp-for="Password" placeholder="Passsword" id="pwd" autocomplete="off">
+                <label>
+                    <input type="checkbox">
+                    <span></span>
+                    <small class="rmb">Remember me</small>
+                </label>
+                <input type="submit" value="Sign in" class="btn1">
+            </form>
+            <a asp-action="Index" asp-controller="Register" asp-area="Admin" class="dnthave">Don’t have an account? Sign up</a>
+        </div>
+    </div>
+</body>
+</html>

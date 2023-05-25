@@ -1,0 +1,278 @@
+﻿@{
+    ViewData["Title"] = "ProductDetail";
+    Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
+    <link rel="stylesheet" href="~/css/Customer/Product_Detail.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <style>
+        #toast-container {
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 40%;
+        }
+
+        .toast {
+            display: inline-block;
+            padding: 10px;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 14px;
+            line-height: 1.4;
+            margin: 10px;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+            .toast.toast-error {
+                background-color: #e74c3c;
+            }
+
+            .toast.show {
+                opacity: 1;
+                transform: translateY(0);
+            }
+    </style>
+}
+<div style="height:500px" class="app_container">
+    <div class="container">
+        <div style="position: relative;" class="col-lg-8 border p-3 main-section bg-white">
+            <div class="row m-0">
+                <div class="col-lg-4 left-side-product-box pb-3">
+                    <img src="@ViewBag.Product.Anh" class="border p-3">
+                </div>
+                <div class="col-lg-8">
+                    <div class="right-side-pro-detail border p-3 m-0">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <p id="TenSanPham" class="m-0 p-0">@ViewBag.Product.TenSanPham</p>
+                            </div>
+                            <div class="col-lg-12">
+                                <p id="GiaBan" class="m-0 p-0 price-pro">@(ViewBag.Product.Gia - ViewBag.Product.Gia * ViewBag.Product.GiamGia / 100) VNĐ</p>
+                                <hr class="p-0 m-0">
+                            </div>
+                            <div class="col-lg-12 pt-2">
+                                <h5>Mô tả:</h5>
+                                <span style="overflow: hidden;;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 4;text-overflow: ellipsis;">
+                                    @ViewBag.Product.MoTa
+                                </span>
+                                <hr class="m-0 pt-2 mt-2">
+                            </div>
+                            <div class="col-lg-12">
+                                <span>Size :</span>
+                                <select id="SelectSize" style="font-size: 16px;" class="form-select">
+                                    @foreach (var size in ViewBag.ListSize)
+                                    {
+                                        <option value="@size.TenSize">@size.TenSize</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-lg-12">
+                                <h2>Sô lượng :</h2>
+                                <input id="SoLuong" style="font-size:16px" type="number" class="form-control text-center w-100" value="1">
+                            </div>
+                            <div class="col-lg-12 mt-3">
+                                <div class="row">
+                                    @if (Context.Session.GetString("Username") == null || Context.Session.GetString("Username") == "")
+                                    {
+                                        <div class="col-lg-6 pb-2">
+                                            <a onclick=addCart(@ViewBag.Product.ProductId) style="font-size:16px" class="btn btn-danger w-100">Add To Cart</a>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="col-lg-6 pb-2">
+                                            <a onclick=addCart(@ViewBag.Product.ProductId) style="font-size:16px" class="btn btn-danger w-100">Add To Cart</a>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <a style="font-size:16px" class="DatHang btn btn-success w-100">Shop Now</a>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="toast-container">
+    <div class="toast toast-error">
+        <div class="toast-message"></div>
+    </div>
+</div>
+
+
+
+
+<div class="modal .js-modal">
+    <div class="modal__overlay">
+    </div>
+    <div class="modal__body">
+        <div class="modal__inner">
+            <!-- dang ky form -->
+            <div style="padding:20px" class="auth-form form_register">
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Thông tin nhận hàng</h3>
+                        <span class="auth-form__switch-btn"></span>
+                    </div>
+                    
+                        <div class="auth-form_form">
+                            <div class="auth-form_group">
+                                <input type="text" id="NguoiNhan" name="NguoiNhan" class="auth-form_input" placeholder="Người nhận">
+                            </div>
+                            <div class="auth-form_group">
+                                <input type="text" id="Phone" name="Phone" class="auth-form_input" placeholder="Số điện thoại">
+                            </div>
+                            <div class="auth-form_group">
+                                <input type="text" id="DiaChi" name="DiaChi" class="auth-form_input" placeholder="Địa chỉ">
+                            </div>
+                        </div>
+                        <div class="auth-form_controls">
+                            <button onclick="OrderbyNow()" style="font-size:16px;color:#fff" class="btn btn--primary">
+                                Đặt hàng
+                            </button>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/js/modal.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function addCart(id)
+    {
+        console.log(id)
+        console.log(document.getElementById("SelectSize").value)
+        console.log(document.getElementById("SoLuong").value)
+        $.ajax(
+            {
+                url: '/Customer/Web_Store/addCart',
+                type: 'Get',
+                contentType: 'application/json;charset=utf-8',
+                dataType: 'json',
+                data: { id: id, size: document.getElementById("SelectSize").value, soluong: document.getElementById("SoLuong").value },
+                success: function (result) {
+                    if (result.success) {
+                        const message = document.querySelector('.toast-message');
+                        message.innerHTML = result.message;
+                        const toast = document.querySelector('.toast');
+                        toast.classList.add('show');
+                        toast.style.background = '#4CAF50';
+                        setTimeout(() => {
+                            toast.classList.remove('show');
+                        }, 3000);
+                        showformlogin();// lấy ở file modal.js
+                    }
+                    else {
+                        const message = document.querySelector('.toast-message');
+                        message.innerHTML = result.message;
+                        const toast = document.querySelector('.toast');
+                        toast.style.background = '#e74c3c';
+                        toast.classList.add('show');
+                        setTimeout(() => {
+                            toast.classList.remove('show');
+                        }, 3000);
+                    }
+                },
+                error: function () {
+                    alert("Lỗi")
+                }
+            }
+        );
+    }
+</script>
+<script>
+    const btnDatHang = document.querySelector('.DatHang');
+    btnDatHang.addEventListener('click', showformregister);
+    document.querySelector('.modal').addEventListener('click', close);
+
+    document.querySelector('.modal__body').addEventListener('click', function (event) {
+        event.stopPropagation()
+    });
+
+
+    function OrderbyNow()
+    {
+        var priceElement = document.getElementById("GiaBan");
+        var priceText = priceElement.textContent;
+        var priceNumber = parseInt(priceText.replace(/,/g, '').replace(' VNĐ', ''));
+        if (confirm("Bạn có chắc chắc đặt đơn hàng này không?\n------------------------ Thông Tin Đơn Hàng ------------------------\nSản Phẩm: " + document.getElementById("TenSanPham").innerHTML + "\nĐơn Giá: " + priceNumber + " VNĐ\nSố lượng: " + document.getElementById('SoLuong').value + "\nTổng tiền:" + (priceNumber * document.getElementById('SoLuong').value) + " VNĐ\nSize: " + document.getElementById('SelectSize').value + "\nNgười Nhận: " + document.getElementById('NguoiNhan').value + "\nSố điện thoại: " + document.getElementById('Phone').value + "\nĐịa chỉ: " + document.getElementById('DiaChi').value)) {
+            $.ajax(
+                {
+                    url: '/Customer/Web_Store/OrderByNow',
+                    type: 'Get',
+                    contentType: 'application/json;charset=utf-8',
+                    dataType: 'json',
+                    data: {
+                        TenSanPham: document.getElementById("TenSanPham").innerHTML,
+                        GiaBan: priceNumber,
+                        SoLuong: document.getElementById('SoLuong').value,
+                        TenSize: document.getElementById('SelectSize').value,
+                        DiaChi: document.getElementById('DiaChi').value,
+                        NguoiNhan: document.getElementById('NguoiNhan').value,
+                        Phone: document.getElementById('Phone').value,
+                    },
+                    success: function (result) {
+                        if (result.success) {
+                            const message = document.querySelector('.toast-message');
+                            message.innerHTML = result.message;
+                            const toast = document.querySelector('.toast');
+                            toast.classList.add('show');
+                            toast.style.background = '#4CAF50';
+                            setTimeout(() => {
+                                toast.classList.remove('show');
+                            }, 3000);
+                            setTimeout(() => {
+                                window.location.href = result.redirectToUrl;
+                            }, 2000);
+                        }
+                        else {
+                            const message = document.querySelector('.toast-message');
+                            message.innerHTML = result.message;
+                            const toast = document.querySelector('.toast');
+                            toast.style.background = '#e74c3c';
+                            toast.classList.add('show');
+                            setTimeout(() => {
+                                toast.classList.remove('show');
+                            }, 3000);
+                            if (result.redirectToUrl) {
+                                setTimeout(() => {
+                                    window.location.href = result.redirectToUrl;
+                                }, 2000);
+                            }
+                        }
+                    },
+                    error: function () {
+                        alert("Lỗi")
+                    }
+                }
+            );
+        }
+
+    }
+</script>
+<script>
+    var amountElement = document.getElementById("GiaBan");
+    var amountText = amountElement.textContent;
+
+    // Chuyển đổi giá trị thành số
+    var amountNumber = Number(amountText.replace(/[^0-9.-]+/g, ""));
+
+    // Định dạng số tiền
+    var formattedAmount = amountNumber.toLocaleString('en-US');
+
+    // Thay thế giá trị cũ bằng giá trị mới đã định dạng
+    amountElement.textContent = formattedAmount + " VNĐ";
+</script>
+
+
+
+
